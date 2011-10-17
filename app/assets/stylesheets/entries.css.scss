@@ -1,3 +1,26 @@
-// Place all the styles related to the entries controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// -*- css -*-
+
+$thumb-width: 320px;
+
+article {
+  width: 640px;
+  margin: 2em auto;
+  .thumb {
+    float: left;
+    width: $thumb-width;
+    text-align: center;
+    outline: solid fuchsia 1px;
+    img {
+      vertical-align: bottom;
+    }
+  }
+  .tags a {
+    color: #888;
+  }
+  .body, .tags {
+    margin-left: 10px + $thumb-width;
+  }
+  .meta {
+    clear: left;
+  }
+}

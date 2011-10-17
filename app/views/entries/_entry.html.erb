@@ -1,7 +1,16 @@
-<p>
- <%= link_to(image_tag(entry.photo.url(:thumb), :alt=>entry.id), entry.photo.url) %>
- <%= entry.body %>
- <% entry.tags.each do |tag| %>
+<article>
+ <p class="thumb">
+  <%= link_to(
+        image_tag(entry.photo.url(:thumb), alt: entry.id, rel: 'photo'),
+        entry.photo.url) %>
+ </p>
+ <p class="tags">
+  <% entry.tags.each do |tag| %>
    <%= link_to(tag.name, tag) %>
- <% end %>
-</p>
+  <% end %>
+ </p>
+ <p class="body"><%= entry.body %></p>
+ <p class="meta">
+  <%= time(entry.created_at, time_ago_in_words(entry.created_at), pubdate: true) %>
+ </p>
+</article>
