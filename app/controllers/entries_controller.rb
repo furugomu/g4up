@@ -1,6 +1,9 @@
 class EntriesController < ApplicationController
+  #caches_page :index
+  #cache_sweeper :entry_sweeper
+
   def index
-    @entries = Entry.recent.page(params[:page]).per(20)
+    @entries = Entry.root.recent.page(params[:page]).per(2)
     @tags = Entry.tag_counts_on(:tags)
   end
 
@@ -14,7 +17,7 @@ class EntriesController < ApplicationController
       render :action=>:new and return
     end
     @entry.save
-    redirect_to :entries
+    redirect_to :root
   end
 
 end

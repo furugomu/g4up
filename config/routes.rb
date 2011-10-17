@@ -1,7 +1,8 @@
 G4up::Application.routes.draw do
+  match 'pages/:page' => 'entries#index'
   resources :entries
   resources :tags, as: :acts_as_taggable_on_tags
-  root :to=>'entries#index'
+  root to: 'entries#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
