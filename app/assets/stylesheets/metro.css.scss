@@ -3,8 +3,8 @@
 $side-margin: 20px;
 
 body {
-  color: black;
-  background: white;
+  color: #444;
+  background: #f0f0f0;
   line-height: 1.8;
   margin: 0 $side-margin;
 }
@@ -12,10 +12,10 @@ body {
 h1 {
   font-weight: normal;
   font-family: "Segoe UI" "Yu Gothic" sans-serif;
-  font-size: 120px;
+  font-size: 140px;
   line-height: 100%;
   vertical-align: top;
-  margin: 0.3em (-$side-margin) 0.5em;
+  margin: 0 (-$side-margin) 0.5em;
 }
 
 button, input[type=submit], input[type=button] {

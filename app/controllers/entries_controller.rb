@@ -1,6 +1,6 @@
 class EntriesController < ApplicationController
   def index
-    @entries = Entry.all()
+    @entries = Entry.recent.page(params[:page]).per(20)
     @tags = Entry.tag_counts_on(:tags)
   end
 
