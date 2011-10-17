@@ -1,5 +1,7 @@
 // -*- css -*-
 
+@import "common.css.scss";
+
 $side-margin: 20px;
 
 body {
@@ -20,11 +22,15 @@ h1 {
 
 button, input[type=submit], input[type=button] {
   border: solid 2px;
-  background: inherit;
+  background: #ddd;
   color: inherit;
-  &:hover {
+  min-width: 6em;
+  font-size: 1.4em;
+  &:hover, &:active {
+    background: #fff;
   }
   &:active {
+    @include transform(translate(1px, 1px));
   }
 }
 

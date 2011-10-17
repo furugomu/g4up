@@ -11,7 +11,7 @@ article {
     text-align: center;
     outline: solid fuchsia 1px;
     img {
-      vertical-align: bottom;
+      vertical-align: top;
     }
   }
   .tags a {
@@ -23,4 +23,14 @@ article {
   .meta {
     clear: left;
   }
+}
+
+form {
+  dt {
+    float: left;
+    width: 10em;
+    clear: left;
+  }
+  dd { margin-bottom: 1em; }
+  .buttons { text-align: center; }
 }

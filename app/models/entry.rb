@@ -6,7 +6,7 @@ class Entry < ActiveRecord::Base
 
   attr_accessible :photo, :body, :tag_list
 
-  scope :recent, order: {created_at: 'desc'}
+  scope :recent, order: "#{quoted_table_name}.created_at desc"
 
   def tag_list=(tags)
     set_tag_list_on(:tags, tags.strip.split(/\n+/).map(&:strip))

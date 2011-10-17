@@ -1,0 +1,15 @@
+<%# -*- encoding: UTF-8 -*-%>
+<section class="upload">
+ <h2>ファイルをアップロードする</h2>
+ <%= form_for @entry||Entry.new do |f| %>
+  <dl>
+   <dt>ファイル</dt>
+   <dd><%= f.file_field :photo, length: 60 %></dd>
+   <dt>コメント</dt>
+   <dd><%= f.text_area :body, size: '60x2' %></dd>
+   <dt>タグ<small>(1行1個、10個まで)</small></dt>
+   <dd><%= f.text_area :tag_list, :size=>'40x3' %></dd>
+  </dl>
+  <p class="buttons"><%= f.submit '送信' %></p>
+ <% end %>
+</section>
