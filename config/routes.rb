@@ -1,6 +1,10 @@
 G4up::Application.routes.draw do
+  get "replies/new"
+
   match 'pages/:page' => 'entries#index'
-  resources :entries
+  resources :entries do
+    resources :replies, as: :entries
+  end
   resources :tags, as: :acts_as_taggable_on_tags
   root to: 'entries#index'
 

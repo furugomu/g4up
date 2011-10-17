@@ -1,0 +1,11 @@
+<%= render @entry %>
+<p>これに返信</p>
+<%= form_for [@entry, @reply] do |f| %>
+ <dl>
+  <dt>ファイル</dt>
+  <dd><%= f.file_field :photo, length: 60 %></dd>
+  <dt>コメント</dt>
+  <dd><%= f.text_area :body, size: '60x2' %></dd>
+ </dl>
+ <p class="buttons"><%= f.submit '送信' %></p>
+<% end %>

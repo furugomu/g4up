@@ -11,6 +11,6 @@
  </p>
  <p class="body"><%= entry.body %></p>
  <p class="meta">
-  <%= time(entry.created_at, time_ago_in_words(entry.created_at), pubdate: true) %>
+  <%= link_to(entry_time(entry), entry) %>
  </p>
 </article>
