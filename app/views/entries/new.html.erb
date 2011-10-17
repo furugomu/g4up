@@ -1,7 +1,11 @@
+<%# -*- encoding: UTF-8 -*-%>
 <h1>Entries#new</h1>
 <%= form_for @entry do |f| %>
 <p><%= f.file_field :photo %></p>
 <p><%= f.text_field :body %></p>
-<p>tags <%= f.text_field :tag_list %></p>
+<p>
+ タグ (1行1個、10個まで)<br />
+ <%= f.text_area :tag_list, :size=>'40x3' %>
+</p>
 <p><%= f.submit '送信' %></p>
 <% end %>

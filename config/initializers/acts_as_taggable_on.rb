@@ -1,5 +1,5 @@
 module ActsAsTaggableOn
-  class Tag < ::ActiveRecord::Base
+  class Tag
     def to_param
       name
     end
