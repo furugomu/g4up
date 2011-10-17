@@ -20,8 +20,12 @@ article {
   .body, .tags {
     margin-left: 10px + $thumb-width;
   }
-  .meta {
+  footer {
     clear: left;
+  }
+  /* comment */
+  article {
+    padding-left: 2em;
   }
 }
 

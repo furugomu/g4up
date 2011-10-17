@@ -10,8 +10,8 @@
   <% end %>
  </p>
  <p class="body"><%= entry.body %></p>
- <p class="meta">
+ <footer>
   <%= link_to(entry_time(entry), entry) %>
- </p>
+ </footer>
  <%= render 'replies', entry: entry %>
 </article>
