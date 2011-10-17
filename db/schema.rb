@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111021113304) do
+ActiveRecord::Schema.define(:version => 20111021113305) do
 
   create_table "entries", :force => true do |t|
     t.text     "body",               :default => "", :null => false
@@ -22,9 +22,12 @@ ActiveRecord::Schema.define(:version => 20111021113304) do
     t.string   "photo_fingerprint"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "parent_id"
+    t.integer  "replies_count",      :default => 0,  :null => false
   end
 
   add_index "entries", ["created_at"], :name => "index_entries_on_created_at"
+  add_index "entries", ["parent_id"], :name => "index_entries_on_parent_id"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
