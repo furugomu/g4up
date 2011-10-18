@@ -51,5 +51,14 @@ module G4up
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.action_view.field_error_proc = lambda {|html, instance|
+      <<-HTML.squish.html_safe
+        <span class="field_with_errors">
+         #{html}
+         <span class="message">#{instance.error_message.join(' ')}</span>
+        </span>
+      HTML
+    }
   end
 end

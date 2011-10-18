@@ -49,3 +49,9 @@ a img {
   text-align: center;
   &.notice { background: lime; }
 }
+
+.field_with_errors {
+  input, textarea, select {
+    outline: solid red 1px;
+  }
+}
