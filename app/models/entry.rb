@@ -5,6 +5,7 @@ class Entry < ActiveRecord::Base
   has_many :complaints, dependent: :delete_all
   has_attached_file(:photo, {
     styles: {thumb: '320x180'},
+    filename: 'g4u:id.:extension',
   })
   acts_as_taggable
 

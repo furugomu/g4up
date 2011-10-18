@@ -5,9 +5,11 @@ $thumb-width: 320px;
 article {
   width: 640px;
   margin: 2em auto;
+  margin-bottom: 4em;
   .thumb {
     float: left;
     width: $thumb-width;
+    margin-right: 10px;
     text-align: center;
     outline: solid fuchsia 1px;
     img {
@@ -17,11 +19,9 @@ article {
   .tags a {
     color: #888;
   }
-  .body, .tags {
-    margin-left: 10px + $thumb-width;
-  }
   footer {
     clear: left;
+    text-align: right;
   }
   /* comment */
   article {
