@@ -1,1 +1,3 @@
 <%= render @entry %>
+<p><%= link_to('この画像を通報する', [@entry, :complaints],
+               class: 'complaint', method: :post, remote: true, :'data-type'=> 'json') %></p>

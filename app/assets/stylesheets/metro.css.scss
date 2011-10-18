@@ -12,12 +12,13 @@ body {
 }
 
 h1 {
-  font-weight: normal;
-  font-family: "Segoe UI" "Yu Gothic" sans-serif;
-  font-size: 140px;
-  line-height: 100%;
+  font: normal 140px / 100% "Segoe UI" "Yu Gothic" sans-serif;
   vertical-align: top;
   margin: 0 (-$side-margin) 0.5em;
+  :link, :visited {
+    color: inherit;
+    text-decoration: none;
+  }
 }
 
 button, input[type=submit], input[type=button] {
@@ -36,4 +37,15 @@ button, input[type=submit], input[type=button] {
 
 a img {
   border: none;
+}
+
+.flash {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  color: white;
+  background: black;
+  text-align: center;
+  &.notice { background: lime; }
 }

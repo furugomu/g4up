@@ -5,11 +5,10 @@ class RepliesController < ApplicationController
   end
 
   def create
-    @reply = @entry.replies.build(params[:entry].slice(:body, :photo))
-    unless @reply.valid?
-      render :action=>:new and return
+    @reply = @entry.replies.new(params[:entry].slice(:body, :photo))
+    unless @reply.save()
+      render action: :new and return
     end
-    @reply.save
     redirect_to @entry
   end
 

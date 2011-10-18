@@ -1,4 +1,6 @@
 class EntriesController < ApplicationController
+  respond_to :html, :json, :js
+
   #caches_page :index
   #cache_sweeper :entry_sweeper
 
@@ -9,6 +11,7 @@ class EntriesController < ApplicationController
 
   def show
     @entry = Entry.find(params[:id])
+    respond_with @entry
   end
 
   def new
@@ -17,10 +20,9 @@ class EntriesController < ApplicationController
 
   def create
     @entry = Entry.new(params[:entry])
-    unless @entry.valid?
-      render :action=>:new and return
+    unless @entry.save()
+      render action: :new and return
     end
-    @entry.save
     redirect_to :root
   end
 
