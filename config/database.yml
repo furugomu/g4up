@@ -1,0 +1,17 @@
+development:
+  adapter: sqlite3
+  database: db/development.sqlite3
+  pool: 5
+
+test:
+  adapter: sqlite3
+  database: db/test.sqlite3
+  pool: 5
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: g4up_production
+  pool: 5
+  username: g4up
+  password:
