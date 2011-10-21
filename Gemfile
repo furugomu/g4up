@@ -17,6 +17,10 @@ group :assets do
   gem 'uglifier'
 end
 
+gem 'therubyracer-heroku', :group=>:production
+gem 'therubyracer', :group=>[:development, :test]
+
+
 gem 'jquery-rails'
 
 # Use unicorn as the web server
