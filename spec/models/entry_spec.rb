@@ -1,5 +1,13 @@
 require 'spec_helper'
 
 describe Entry do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it '画像を添付' do
+    e = Entry.new(:photo=>Rails.root.join('spec','files','imas9393.jpg'))
+    e.should be_valid
+    e.save
+  end
+
+  it 'hoge' do
+    ' '.should be_blank
+  end
 end

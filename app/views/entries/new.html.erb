@@ -1,0 +1,6 @@
+<h1>Entries#new</h1>
+<%= form_for @entry do |f| %>
+<p><%= f.file_field :photo %></p>
+<p><%= f.text_field :body %></p>
+<p><%= f.submit '送信' %></p>
+<% end %>
