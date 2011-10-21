@@ -1,6 +1,7 @@
 class EntriesController < ApplicationController
   def index
     @entries = Entry.all()
+    @tags = Entry.tag_counts_on(:tags)
   end
 
   def new

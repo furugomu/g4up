@@ -2,5 +2,6 @@
 <%= form_for @entry do |f| %>
 <p><%= f.file_field :photo %></p>
 <p><%= f.text_field :body %></p>
+<p>tags <%= f.text_field :tag_list %></p>
 <p><%= f.submit '送信' %></p>
 <% end %>
