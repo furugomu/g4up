@@ -9,9 +9,6 @@ test:
   pool: 5
 
 production:
-  adapter: postgresql
-  encoding: unicode
-  database: g4up_production
+  adapter: sqlite3
+  database: db/production.sqlite3
   pool: 5
-  username: g4up
-  password:
