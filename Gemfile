@@ -2,7 +2,8 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
-gem 'sqlite3'
+gem 'sqlite3', group: [:test, :development]
+gem 'pg', group: :production
 gem 'paperclip'
 gem 'acts-as-taggable-on'
 gem 'kaminari'
@@ -22,7 +23,7 @@ gem 'jquery-rails'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
