@@ -1,4 +1,4 @@
-<section class="comments">
+<section class="replies">
  <% replies.each do |reply| %>
 
 <article id="reply-<%= reply.id %>">
@@ -16,4 +16,5 @@
 </article>
 
  <% end %>
+ <%= paginate replies %>
 </section>
