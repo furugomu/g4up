@@ -1,0 +1,19 @@
+$grid-width: 30px;
+$grid-margin: 10px;
+$font-color:     #333333 !default;
+$quiet-color:    lighten($font-color, 20%) !default;
+$loud-color:     darken($font-color, 13.33%) !default;
+$header-color:   darken($font-color, 6.67%) !default;
+$background-color: #eeeeee !default;
+$border-color: #ddd !default;
+
+@function span($n) {
+  @return $grid-width * $n + $grid-margin * ($n - 1);
+}
+
+@mixin transform($value) {
+  transform: $value;
+  -moz-transform: $value;
+  -webkit-transform: $value;
+  -o-transform: $value;
+}

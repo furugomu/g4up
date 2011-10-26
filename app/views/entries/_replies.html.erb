@@ -1,6 +1,5 @@
-<% if entry.replies.present? %>
- <section class="comments">
-  <% entry.replies.each do |reply| %>
+<section class="comments">
+ <% replies.each do |reply| %>
 
 <article id="reply-<%= reply.id %>">
 <%= content_tag(:article, id: 'reply-%d' % reply.id) do %>
@@ -16,6 +15,5 @@
 <% end %>
 </article>
 
-  <% end %>
- </section>
-<% end %>
+ <% end %>
+</section>

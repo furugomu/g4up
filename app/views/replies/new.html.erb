@@ -1,6 +1,4 @@
-<%= render @entry %>
-<p>これに返信</p>
-<%= form_for [@entry, @reply] do |f| %>
+<%= form_for [entry, reply] do |f| %>
  <dl>
   <dt>ファイル</dt>
   <dd><%= f.file_field :photo, length: 60 %></dd>

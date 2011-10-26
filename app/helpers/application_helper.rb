@@ -1,3 +1,4 @@
+# -*- encoding: UTF-8 -*-
 module ApplicationHelper
   def time(time, label, options={})
     options[:pubdate] = "pubdate" if options[:pubdate]
@@ -7,7 +8,11 @@ module ApplicationHelper
   def entry_time(entry)
     time(
       entry.created_at,
-      time_ago_in_words(entry.created_at)+" ago",
+      l(entry.created_at),
       pubdate: true)
+  end
+
+  def idol_names
+    %w(亜美 真美 やよい 伊織 美希 千早 響 春香 雪歩 真 貴音 律子 あずさ)
   end
 end

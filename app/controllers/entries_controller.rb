@@ -6,11 +6,14 @@ class EntriesController < ApplicationController
 
   def index
     @entries = Entry.root.recent.page(params[:page]).per(20)
-    @tags = Entry.tag_counts_on(:tags)
+    # tag cloud
+    #@tags = Entry.tag_counts_on(:tags)
   end
 
   def show
     @entry = Entry.find(params[:id])
+    @replies = @entry.replies.page(params[:page]).per(20)
+    @reply = @entry.replies.new
     respond_with @entry
   end
 

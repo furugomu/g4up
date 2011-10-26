@@ -1,0 +1,16 @@
+<section>
+<h1>これに返信</h1>
+<%= form_for [@entry, @reply] do |f| %>
+ <table>
+  <tr>
+   <th>ファイル</th>
+   <td><%= f.file_field :photo, length: 60 %></td>
+  </tr>
+  <tr>
+   <th>コメント</th>
+   <td><%= f.text_area :body, size: '40x2' %></td>
+  </tr>
+ </table>
+ <p class="buttons"><%= f.submit '送信' %></p>
+<% end %>
+</section>
