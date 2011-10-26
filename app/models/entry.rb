@@ -5,7 +5,13 @@ class Entry < ActiveRecord::Base
   has_many :complaints, dependent: :delete_all
   has_attached_file(:photo, {
     styles: {thumb: '320x180'},
-    filename: 'g4u:id.:extension',
+    url: '/system/:attachment/:id/:style/g4u:id.:extension',
+    storage: Rails.env.production? ? :s3 : :filesystem,
+    path: (Rails.env.production? ? '/photo/:id/:style/g4u:id.:extension'
+                                 : ':rails_root/public:url'),
+    s3_credentials: Rails.root.join('config', 's3.yaml').to_s,
+    s3_host_name: 's3-ap-northeast-1.amazonaws.com',
+    bucket: 'g4u',
   })
   acts_as_taggable
 
@@ -41,4 +47,5 @@ class Entry < ActiveRecord::Base
   def body_blank?
     body.blank?
   end
+
 end

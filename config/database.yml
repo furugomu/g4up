@@ -13,5 +13,6 @@ production:
   encoding: unicode
   database: g4up
   pool: 5
+  host: localhost
   username: faerie
   password: onigiriwa315
