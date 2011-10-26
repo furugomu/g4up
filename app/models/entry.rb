@@ -30,9 +30,9 @@ class Entry < ActiveRecord::Base
     end
   end
 
-  def tag_list=(tags)
-    set_tag_list_on(:tags, tags.strip.split(/\n+/).map(&:strip))
-  end
+  #def tag_list=(tags)
+  #  set_tag_list_on(:tags, tags.strip.split(/\n+/).map(&:strip))
+  #end
 
   def censor!
     update_attribute(:censored, true)

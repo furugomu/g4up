@@ -6,14 +6,18 @@
         entry.photo.url) %>
  </p>
  <% end %>
- <p class="tags">
-  <% entry.tags.each do |tag| %>
-   <%= link_to(tag.name, tag) %>
-  <% end %>
- </p>
  <p class="body"><%= entry.body %></p>
  <footer>
+  <span class="tags">
+   <% if entry.tags.present? %>&hearts;<% end %>
+   <% entry.tags.each do |tag| %>
+    <%= link_to(tag.name, tag) %>
+   <% end %>
+  </span>
+  <span>
+   &spades;<%= entry.replies_count %>
+  </span>
   <%= link_to(entry_time(entry), entry) %>
  </footer>
- <%= render 'replies', entry: entry %>
+ <%= render 'replies', replies: @replies if @replies.present? %>
 </article>

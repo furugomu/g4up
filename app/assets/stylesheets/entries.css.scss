@@ -1,15 +1,16 @@
 // -*- css -*-
 
+@import "common";
+
 $thumb-width: 320px;
 
 article {
-  width: 640px;
-  margin: 2em auto;
-  margin-bottom: 4em;
+  width: $thumb-width * 2 + $grid-margin;
+  margin: 4em auto;
   .thumb {
     float: left;
     width: $thumb-width;
-    margin-right: 10px;
+    margin-right: $grid-margin;
     text-align: center;
     img {
       vertical-align: top;
@@ -24,16 +25,18 @@ article {
   }
   /* comment */
   article {
-    padding-left: 2em;
+    padding-left: $grid-width + $grid-margin;
+    margin: 2em auto;
   }
 }
 
 form {
-  dt {
-    float: left;
-    width: 10em;
-    clear: left;
+  table {
+    width: span(18);
+    margin: auto;
+    th {
+      min-width: 6em;
+    }
   }
-  dd { margin-bottom: 1em; }
   .buttons { text-align: center; }
 }

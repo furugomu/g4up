@@ -10,8 +10,14 @@
  <% flash.each do |key, value| %>
   <%= content_tag :p, value, class: 'flash %s' % key %>
  <% end %>
- <h1><%= link_to 'G4Up', :root %></h1>
+ <header>
+  <h1><%= link_to 'G4Up', :root %></h1>
+  <p>G4U で撮影した写真を自慢しよう</p>
+ </header>
 <%= yield %>
-
+<address>
+ <a href="http://twitter.com/furugomu">@furugomu</a> |
+ 匿名でのお問い合わせはギャルゲー板アイマス2スレへ。
+</address>
 </body>
 </html>

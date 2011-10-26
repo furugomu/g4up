@@ -1,23 +1,28 @@
 // -*- css -*-
 
-@import "common.css.scss";
-
-$side-margin: 20px;
+@import "common";
 
 body {
-  color: #444;
-  background: #f0f0f0;
+  color: $font-color;
+  background: $background-color;
   line-height: 1.8;
-  margin: 0 $side-margin;
+  margin: $grid-margin;
 }
 
-h1 {
-  font: normal 140px / 100% "Segoe UI" "Yu Gothic" sans-serif;
-  vertical-align: top;
-  margin: 0 (-$side-margin) 0.5em;
-  :link, :visited {
-    color: inherit;
-    text-decoration: none;
+header {
+  margin: 10px 0 20px;
+  h1 {
+    margin: 0;
+    font: normal 60px / 100% sans-serif;
+    vertical-align: top;
+    :link, :visited {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+  p {
+    margin: 0;
+    font-size: 90%;
   }
 }
 
@@ -26,7 +31,7 @@ button, input[type=submit], input[type=button] {
   background: #ddd;
   color: inherit;
   min-width: 6em;
-  font-size: 1.4em;
+  font-size: 120%;
   &:hover, &:active {
     background: #fff;
   }
@@ -54,4 +59,10 @@ a img {
   input, textarea, select {
     outline: solid red 1px;
   }
+}
+
+address {
+  margin-top: 10em;
+  font-style: normal;
+  text-align: right;
 }

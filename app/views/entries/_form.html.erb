@@ -1,15 +1,28 @@
 <%# -*- encoding: UTF-8 -*-%>
 <section class="upload">
  <h2>ファイルをアップロードする</h2>
- <%= form_for @entry||Entry.new do |f| %>
-  <dl>
-   <dt>ファイル</dt>
-   <dd><%= f.file_field :photo, length: 60 %></dd>
-   <dt>コメント</dt>
-   <dd><%= f.text_area :body, size: '60x2' %></dd>
-   <dt>タグ<small>(1行1個、10個まで)</small></dt>
-   <dd><%= f.text_area :tag_list, :size=>'40x3' %></dd>
-  </dl>
+ <% @entry ||= Entry.new %>
+ <%= form_for @entry do |f| %>
+  <table>
+   <tr>
+    <th>ファイル</th>
+    <td><%= f.file_field :photo, length: 60 %></td>
+   </tr>
+   <tr>
+    <th>コメント</th>
+    <td><%= f.text_area :body, size: '40x2' %></td>
+   </tr>
+   <tr>
+    <th>タグ</th>
+    <td>
+     <% idol_names.each_with_index do |name, i| %>
+      <%- id = 'tag%d' % i -%>
+      <%= check_box_tag 'entry[tag_list][]', name, @entry.tag_list.include?(name), id: id
+       %><%= label_tag id, name %>
+     <% end %>
+    </td>
+   </tr>
+  </table>
   <p class="buttons"><%= f.submit '送信' %></p>
  <% end %>
 </section>
