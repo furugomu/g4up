@@ -11,6 +11,7 @@ set :application, "g4up"
 set :repository,  "ssh://gitolite@precog.net/g4up"
 set :deploy_to, "/var/rails/#{application}"
 set :scm, :git
+set :user, 'faerie'
 
 role :web, "precog.net"                          # Your HTTP server, Apache/etc
 role :app, "precog.net"                          # This may be the same as your `Web` server
