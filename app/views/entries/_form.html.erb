@@ -15,11 +15,7 @@
    <tr>
     <th>タグ</th>
     <td>
-     <% idol_names.each_with_index do |name, i| %>
-      <%- id = 'tag%d' % i -%>
-      <%= check_box_tag 'entry[tag_list][]', name, @entry.tag_list.include?(name), id: id
-       %><%= label_tag id, name %>
-     <% end %>
+     <%= render 'form_tags', entry: @entry, f: f %>
     </td>
    </tr>
   </table>
