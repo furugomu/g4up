@@ -38,6 +38,10 @@ class Entry < ActiveRecord::Base
     update_attribute(:censored, true)
   end
 
+  def root?
+    parent_id.blank?
+  end
+
   private
 
   def photo_blank?

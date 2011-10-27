@@ -8,16 +8,17 @@
  <% end %>
  <p class="body"><%= entry.body %></p>
  <footer>
-  <span class="tags">
-   <% if entry.tags.present? %>&hearts;<% end %>
-   <% entry.tags.each do |tag| %>
-    <%= link_to(tag.name, tag) %>
-   <% end %>
-  </span>
-  <span>
-   &spades;<%= entry.replies_count %>
-  </span>
+  <% if entry.root? %>
+   <span class="tags">
+    <% if entry.tags.present? %>&hearts;<% end %>
+    <% entry.tags.each do |tag| %>
+     <%= link_to(tag.name, tag) %>
+    <% end %>
+   </span>
+   <span>
+    &spades;<%= entry.replies_count %>
+   </span>
+  <% end %>
   <%= link_to(entry_time(entry), entry) %>
  </footer>
- <%= render 'replies', replies: @replies if @replies.present? %>
 </article>
