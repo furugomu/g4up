@@ -15,7 +15,7 @@ class RepliesController < ApplicationController
   private
 
   def find_entry
-    @entry = Entry.find(params[:entry_id])
+    @entry = Entry.root.find(params[:entry_id])
   end
 
 end

@@ -1,19 +1,19 @@
 <section class="replies">
- <% replies.each do |reply| %>
+ <% replies.reverse.each do |reply| %>
 
-<article id="reply-<%= reply.id %>">
 <%= content_tag(:article, id: 'reply-%d' % reply.id) do %>
+ <% if reply.photo.present? %>
  <p class="thumb">
   <%= link_to(
         image_tag(reply.photo.url(:thumb), alt: reply.id, rel: 'photo'),
         reply.photo.url) %>
  </p>
+ <% end %>
  <p class="body"><%= reply.body %></p>
  <footer>
   <%= link_to(entry_time(reply), reply) %>
  </footer>
 <% end %>
-</article>
 
  <% end %>
  <%= paginate replies %>

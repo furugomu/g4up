@@ -12,9 +12,13 @@ class EntriesController < ApplicationController
 
   def show
     @entry = Entry.find(params[:id])
-    @replies = @entry.replies.page(params[:page]).per(20)
+    @replies = @entry.replies.recent.page(params[:page]).per(20)
     @reply = @entry.replies.new
     respond_with @entry
+  end
+
+  def large
+    @entry = Entry.find(params[:id])
   end
 
   def new
@@ -29,4 +33,14 @@ class EntriesController < ApplicationController
     redirect_to :root
   end
 
+  def edit
+    @entry = Entry.root.find(params[:id])
+  end
+
+  def update
+    @entry = Entry.root.find(params[:id])
+    @entry.tag_list = params[:entry][:tag_list]
+    @entry.save()
+    redirect_to @entry
+  end
 end
