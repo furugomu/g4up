@@ -17,8 +17,9 @@ class EntriesController < ApplicationController
     respond_with @entry
   end
 
-  def large
+  def full
     @entry = Entry.find(params[:id])
+    render :layout=>'fullscreen'
   end
 
   def new

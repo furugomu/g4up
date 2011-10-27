@@ -1,0 +1,5 @@
+<article id="full">
+<%= link_to(
+      image_tag(@entry.photo.url(:original), alt: @entry.id, rel: 'photo'),
+      @entry) %>
+</article>

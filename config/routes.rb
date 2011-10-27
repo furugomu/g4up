@@ -3,6 +3,9 @@ G4up::Application.routes.draw do
 
   match 'pages/:page' => 'entries#index'
   resources :entries do
+    member do
+      get :full
+    end
     resources :replies, as: :entries
     resources :complaints
   end
