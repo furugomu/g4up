@@ -1,0 +1,8 @@
+<% idol_names.each_with_index do |name, i| %>
+ <%- id = 'tag%d' % i -%>
+ <%= check_box_tag 'entry[tag_list][]', name, entry.tag_list.include?(name), id: id
+  %><%= label_tag id, name %>
+<% end %>
+|
+その他 (スペース区切り)
+ <%= f.text_field :other_tags, size: 20 %>

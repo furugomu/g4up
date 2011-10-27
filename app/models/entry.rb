@@ -15,7 +15,8 @@ class Entry < ActiveRecord::Base
   })
   acts_as_taggable
 
-  attr_accessible :photo, :body, :tag_list
+  attr_accessor :other_tags
+  attr_accessible :photo, :body, :tag_list, :other_tags
 
   scope :recent, order("#{quoted_table_name}.created_at desc")
   scope :root, where(parent_id: nil)
@@ -30,9 +31,7 @@ class Entry < ActiveRecord::Base
     end
   end
 
-  #def tag_list=(tags)
-  #  set_tag_list_on(:tags, tags.strip.split(/\n+/).map(&:strip))
-  #end
+  before_save :add_other_tags
 
   def censor!
     update_attribute(:censored, true)
@@ -50,6 +49,11 @@ class Entry < ActiveRecord::Base
 
   def body_blank?
     body.blank?
+  end
+
+  def add_other_tags
+    ts = other_tags.strip.split(/\s+/)
+    tag_list.concat(ts) if ts.present?
   end
 
 end
