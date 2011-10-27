@@ -63,7 +63,7 @@ class Entry < ActiveRecord::Base
   end
 
   def add_other_tags
-    ts = other_tags.strip.split(/\s+/)
+    ts = other_tags.to_s.strip.split(/\s+/)
     tag_list.concat(ts) if ts.present?
   end
 
