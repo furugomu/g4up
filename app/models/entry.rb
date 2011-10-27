@@ -31,6 +31,7 @@ class Entry < ActiveRecord::Base
     end
   end
 
+  before_validation :add_tag_from_filename
   before_save :add_other_tags
 
   def censor!
@@ -49,6 +50,16 @@ class Entry < ActiveRecord::Base
 
   def body_blank?
     body.blank?
+  end
+
+  # ファイル名にアイドルの名前が含まれていたらタグに追加
+  def add_tag_from_filename
+    photo.original_filename.present? or return
+    names = %w(
+      あずさ やよい 亜美 真美 伊織 美希 千早 春香 雪歩 貴音 律子 響 真
+    )
+    tag = names.detect{|n| photo.original_filename.include?(n)}
+    self.tag_list << tag if tag
   end
 
   def add_other_tags
