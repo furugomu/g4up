@@ -56,7 +56,6 @@ module G4up
       <<-HTML.squish.html_safe
         <span class="field_with_errors">
          #{html}
-         <span class="message">#{instance.error_message.join(' ')}</span>
         </span>
       HTML
     }
