@@ -28,9 +28,10 @@ class Entry < ActiveRecord::Base
     photo.queued_for_write[:original] or next
     dimensions = Paperclip::Geometry.from_file(photo.queued_for_write[:original])
     unless dimensions.width == 1280 && dimensions.height == 720
-      record.errors.add(attr, '1280x720 でないといけません')
+      record.errors.add(attr, 'のサイズは 1280x720 にしてください。')
     end
   end
+  validates_attachment_size :photo, :less_than => 600.kilobytes, message: 'は 600KB 以下にしてください。'
 
   before_validation :add_tag_from_filename
   before_save :add_other_tags

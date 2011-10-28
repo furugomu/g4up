@@ -1,0 +1,11 @@
+# -*- encoding: UTF-8 -*-
+ja:
+  activerecord:
+    models:
+      entry: エントリー
+    attributes:
+      entry:
+        photo: 画像
+        photo_file_size: ファイルサイズ
+        body: コメント
+        tag_list: タグ

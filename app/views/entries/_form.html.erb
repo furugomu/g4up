@@ -3,6 +3,7 @@
  <h2>ファイルをアップロードする</h2>
  <% @entry ||= Entry.new %>
  <%= form_for @entry do |f| %>
+  <%= render 'shared/error_messages', target: @entry %>
   <table>
    <tr>
     <th>ファイル</th>

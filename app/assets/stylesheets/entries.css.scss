@@ -30,12 +30,16 @@ article {
 }
 
 form {
+  width: span(18);
+  margin: auto;
   table {
-    width: span(18);
-    margin: auto;
+    width: 100%;
     th {
       min-width: 6em;
     }
   }
   .buttons { text-align: center; }
+}
+.errorExplanation {
+  background-color: #efd0d0;
 }
