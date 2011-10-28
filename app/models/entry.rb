@@ -5,6 +5,7 @@ class Entry < ActiveRecord::Base
   has_many :complaints, dependent: :delete_all
   has_attached_file(:photo, {
     styles: {thumb: '320x180'},
+    use_timestamp: false,
     url: '/system/:attachment/:id/:style/g4u:id.:extension',
     storage: Rails.env.production? ? :s3 : :filesystem,
     path: (Rails.env.production? ? '/photo/:id/:style/g4u:id.:extension'
@@ -40,6 +41,13 @@ class Entry < ActiveRecord::Base
 
   def root?
     parent_id.blank?
+  end
+
+  # 拡張子(ドット無し)
+  def format
+    photo.blank? and return nil
+    ext = File.extname(photo.path)
+    ext[1..-1] if ext
   end
 
   private

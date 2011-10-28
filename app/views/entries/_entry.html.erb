@@ -3,7 +3,7 @@
  <p class="thumb">
   <%= link_to(
         image_tag(entry.photo.url(:thumb), alt: entry.id, rel: 'photo'),
-        [:full, entry]) %>
+        polymorphic_path([:full, entry], format: entry.format)) %>
  </p>
  <% end %>
  <p class="body"><%= entry.body %></p>
