@@ -43,11 +43,9 @@ class Entry < ActiveRecord::Base
     parent_id.blank?
   end
 
-  # 拡張子(ドット無し)
-  def format
+  def filename
     photo.blank? and return nil
-    ext = File.extname(photo.path)
-    ext[1..-1] if ext
+    File.basename(photo.path)
   end
 
   private
