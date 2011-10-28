@@ -7,9 +7,17 @@ class Entry < ActiveRecord::Base
     styles: {thumb: '320x180'},
     use_timestamp: false,
     url: '/system/:attachment/:id/:style/g4u:id.:extension',
-    storage: Rails.env.production? ? :s3 : :filesystem,
-    path: (Rails.env.production? ? '/photo/:id/:style/g4u:id.:extension'
-                                 : ':rails_root/public:url'),
+    storage: lambda {|attachment|
+      default = Rails.env.production? ? :s3 : :filesystem
+      (attachment.instance.storage || default).to_sym
+    },
+    path: lambda {|attachment|
+      if attachment.instance.storage == 's3'
+        '/photo/:id/:style/g4u:id.:extension'
+      else
+        ':rails_root/public:url'
+      end
+    },
     s3_credentials: Rails.root.join('config', 's3.yaml').to_s,
     s3_host_name: 's3-ap-northeast-1.amazonaws.com',
     bucket: 'g4u',
@@ -47,6 +55,19 @@ class Entry < ActiveRecord::Base
   def filename
     photo.blank? and return nil
     File.basename(photo.path)
+  end
+
+  def change_storage(new_storage)
+    old_storage = self.storage
+    old_path = photo.path
+    file = photo.to_file
+    update_attribute(:storage, new_storage)
+    self.reload
+    self.photo = file
+    self.save
+    if old_storage == 'filesystem'
+      File.unlink(old_path)
+    end
   end
 
   private
