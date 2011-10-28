@@ -19,6 +19,9 @@ class EntriesController < ApplicationController
 
   def full
     @entry = Entry.find(params[:id])
+    if request.referrer.blank?
+      redirect_to @entry.photo.url(:original) and return
+    end
     render :layout=>'fullscreen'
   end
 
