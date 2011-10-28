@@ -1,10 +1,12 @@
+# -*- encoding: UTF-8 -*-
 G4up::Application.routes.draw do
-  get "replies/new"
+  get "replies/new" # TODO いらないはずなので確認してから消す
 
   match 'pages/:page' => 'entries#index'
   resources :entries do
     member do
-      get :full
+      get 'full/*filename' => 'entries#full', as: :full
+      get :full # 後方互換
     end
     resources :replies, as: :entries
     resources :complaints
