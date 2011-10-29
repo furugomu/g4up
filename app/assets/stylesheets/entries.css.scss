@@ -4,28 +4,35 @@
 
 $thumb-width: 320px;
 
+.entries {
+  @incude clearfix;
+}
+
 article {
-  width: $thumb-width * 2 + $grid-margin;
-  margin: 4em auto;
-  .thumb {
-    float: left;
-    width: $thumb-width;
-    margin-right: $grid-margin;
-    text-align: center;
-    img {
-      vertical-align: top;
-    }
+  float: left;
+  width: 320px;
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+  margin: 10px;
+  .thumb img {
+    width: 320px;
+    height: 180px;
+    vertical-align: top;
   }
+  .body { display: none; }
   .tags a {
     color: #888;
   }
   footer {
+    margin: 10px;
+    width: 300px;
+    font-size: 12px;
     clear: left;
     text-align: right;
-  }
-  /* comment */
-  article {
-    margin: 2em auto;
+    position: absolute;
+    bottom: 0;
+    right: 0;
   }
 }
 

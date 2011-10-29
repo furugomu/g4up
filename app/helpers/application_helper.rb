@@ -5,10 +5,18 @@ module ApplicationHelper
     content_tag(:time, label, options)
   end
 
+  def relative_time(time)
+    now = Time.current.time
+    return time.strftime('%Y/%m/%d %H:%M') if now.year != time.year
+    return time.strftime('%m/%d %H:%M') if now.month != time.month
+    return time.strftime('%m/%d %H:%M') if now.day != time.day
+    time.strftime('%H:%M')
+  end
+
   def entry_time(entry)
     time(
       entry.created_at,
-      l(entry.created_at),
+      relative_time(entry.created_at),
       pubdate: true)
   end
 

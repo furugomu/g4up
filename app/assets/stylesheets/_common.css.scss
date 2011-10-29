@@ -7,6 +7,12 @@ $header-color:   darken($font-color, 6.67%) !default;
 $background-color: #eeeeee !default;
 $border-color: #ddd !default;
 
+$link-color:         #06c                  !default;
+$link-hover-color:   #09f                  !default;
+$link-focus-color:   $link-hover-color     !default;
+$link-active-color:  lighten(adjust-hue($link-color, 75deg), 10%) !default;
+$link-visited-color: darken($link-color, 10%) !default;
+
 @function span($n) {
   @return $grid-width * $n + $grid-margin * ($n - 1);
 }
@@ -16,4 +22,10 @@ $border-color: #ddd !default;
   -moz-transform: $value;
   -webkit-transform: $value;
   -o-transform: $value;
+}
+
+@mixin clearfix {
+  &:after {
+    clear: both;
+  }
 }

@@ -1,4 +1,4 @@
-<article>
+<%= content_tag(:article, class: Imas.romaji(entry.idol_tag), title: entry.body) do %>
  <% if entry.photo.present? %>
  <p class="thumb">
   <%= link_to(
@@ -6,19 +6,17 @@
         polymorphic_path([:full, entry], filename: entry.filename)) %>
  </p>
  <% end %>
- <p class="body"><%= entry.body %></p>
- <footer>
-  <% if entry.root? %>
-   <span class="tags">
-    <% if entry.tags.present? %>&hearts;<% end %>
-    <% entry.tags.each do |tag| %>
-     <%= link_to(tag.name, tag) %>
-    <% end %>
-   </span>
-   <span>
-    &spades;<%= entry.replies_count %>
-   </span>
-  <% end %>
-  <%= link_to(entry_time(entry), entry) %>
- </footer>
-</article>
+ <div class="text">
+  <p class="body"><%= entry.body %></p>
+  <footer>
+   <% if entry.root? %>
+    <span class="tags">
+     <% entry.tags.each do |tag| %>
+      <%= link_to(tag.name, tag) %>
+     <% end %>
+    </span>
+   <% end %>
+   <%= link_to(entry_time(entry), entry) %>
+  </footer>
+ </div>
+<% end %>
