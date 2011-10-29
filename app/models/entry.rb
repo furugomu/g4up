@@ -70,6 +70,10 @@ class Entry < ActiveRecord::Base
     end
   end
 
+  def idol_tag
+    self.tag_list.detect{|x|Imas.idol_names.include?(x)}
+  end
+
   private
 
   def photo_blank?
@@ -83,10 +87,7 @@ class Entry < ActiveRecord::Base
   # ファイル名にアイドルの名前が含まれていたらタグに追加
   def add_tag_from_filename
     photo.original_filename.present? or return
-    names = %w(
-      あずさ やよい 亜美 真美 伊織 美希 千早 春香 雪歩 貴音 律子 響 真
-    )
-    tag = names.detect{|n| photo.original_filename.include?(n)}
+    tag = Imas.idol_names.detect{|n| photo.original_filename.include?(n)}
     self.tag_list << tag if tag
   end
 

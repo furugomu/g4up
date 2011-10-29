@@ -19,6 +19,16 @@ body#fullscreen {
   }
 }
 
+:link {
+  color: $link-color;
+}
+:link:hover {
+  color: $link-hover-color;
+}
+:visited {
+  color: $link-visited-color;
+}
+
 header {
   margin: 10px 0 20px;
   h1 {
@@ -76,3 +86,39 @@ address {
   font-style: normal;
   text-align: right;
 }
+
+.haruka { background-color: #e03032; }
+.chihaya { background-color: #2947ce; }
+.yukiho { background-color: #d6dfeb; }
+.yayoi { background-color: #f39b3b; }
+.ritsuko { background-color: #01aa60; }
+.azusa { background-color: #943abd; }
+.iori { background-color: #fd9be0; }
+.makoto { background-color: #54575a; }
+.ami { background-color: #ffe542; }
+.mami { background-color: #fde240; }
+.miki { background-color: #b4de4a; }
+.hibiki { background-color: #00adb7; }
+.takane { background-color: #a61269; }
+
+.yukiho, .haruka, .yayoi, .iori, .ami, .mami, .miki, .hibiki {
+  #color: #333;
+  :link, :visited {
+    color: #333;
+  }
+  :link:hover {
+    color: $link-hover-color;
+  }
+}
+.makoto, .ritsuko, .chihaya, .azusa, .takane {
+  color: #ddd;
+  :link {
+    color: #ddd;
+  }
+  :link:hover {
+    color: $link-hover-color;
+  }
+}
+
+
+
