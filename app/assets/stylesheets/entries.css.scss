@@ -5,6 +5,7 @@
 $thumb-width: 320px;
 
 .entries {
+  margin: $grid-margin (-$grid-margin/2);
   clear: both;
   @include clearfix;
   article {
@@ -13,7 +14,7 @@ $thumb-width: 320px;
     height: 240px;
     overflow: hidden;
     position: relative;
-    margin: 10px;
+    margin: $grid-margin/2;
     .thumb img {
       width: 320px;
       height: 180px;
