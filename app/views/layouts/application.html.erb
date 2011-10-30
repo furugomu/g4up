@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+ <head>
   <title>G4Up</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
@@ -10,7 +10,11 @@
                  href: feed_atom_url, title: 'Atom feed') %>
   <meta name="keywords" content="水谷絵理,絵理ちゃん,Ellie" />
   <script src="http://s.hatena.ne.jp/js/HatenaStar.js"></script>
-</head>
+  <script>
+   Hatena.Star.Token = 'fbef3da149dffdf7ffb3c74579ec397c803a65cd';
+  </script>
+  <%= yield :head %>
+ </head>
 <body>
  <% flash.each do |key, value| %>
   <%= content_tag :p, value, class: 'flash %s' % key %>
