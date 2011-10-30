@@ -1,4 +1,7 @@
-<article id="full">
+<%= content_tag(:article, {
+      class: Imas.romaji(@entry.idol_tag),
+      id: "full",
+    }) do %>
 <p>
 <%= link_to(
       image_tag(@entry.photo.url(:original), alt: @entry.id, rel: 'photo'),
@@ -16,7 +19,9 @@
    <% end %>
    <%= link_to(entry_time(@entry), @entry) %>
 </footer>
-</article>
+<% end %>
 <% if @entry.root? %>
  <p><%= link_to('タグを編集(仮)', [:edit, @entry]) %></p>
 <% end %>
+
+<%= render 'shared/affiliate' %>

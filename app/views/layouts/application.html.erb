@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width" />
   <%= tag(:link, rel: 'alternate', type: 'application/atom+xml', 
                  href: feed_atom_url, title: 'Atom feed') %>
+  <meta name="keywords" content="水谷絵理,絵理ちゃん,Ellie" />
 </head>
 <body>
  <% flash.each do |key, value| %>
@@ -15,7 +16,7 @@
  <% end %>
  <header>
   <h1><%= link_to 'G4Up', :root %></h1>
-  <p>G4U で撮影した写真を自慢しよう</p>
+  <p><abbr title="アイドルマスター グラビアフォーユー！">G4U</abbr> で撮影した写真を自慢しよう</p>
  </header>
 <%= yield %>
 <address>
