@@ -2,7 +2,7 @@
 <p>
 <%= link_to(
       image_tag(@entry.photo.url(:original), alt: @entry.id, rel: 'photo'),
-      @entry) %>
+      :root) %>
 </p>
 <p><%= @entry.body %></p>
 <footer>
