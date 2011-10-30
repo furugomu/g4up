@@ -5,7 +5,7 @@ class EntriesController < ApplicationController
   #cache_sweeper :entry_sweeper
 
   def index
-    @entries = Entry.root.recent.page(params[:page])
+    @entries = Entry.root.recent.includes(:tags).page(params[:page])
     # tag cloud
     #@tags = Entry.tag_counts_on(:tags)
   end

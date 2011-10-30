@@ -14,6 +14,8 @@ G4up::Application.routes.draw do
   resources :tags, as: :acts_as_taggable_on_tags
   root to: 'entries#index'
 
+  match 'feed/atom' => 'feed#atom', format: 'xml'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
