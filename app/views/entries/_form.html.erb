@@ -1,25 +1,22 @@
 <%# -*- encoding: UTF-8 -*-%>
-<section class="upload">
- <h2>ファイルをアップロードする</h2>
- <% @entry ||= Entry.new %>
- <%= form_for @entry do |f| %>
-  <%= render 'shared/error_messages', target: @entry %>
-  <table>
-   <tr>
-    <th>ファイル</th>
-    <td><%= f.file_field :photo, length: 60 %></td>
-   </tr>
-   <tr>
-    <th>コメント</th>
-    <td><%= f.text_area :body, size: '40x2' %></td>
-   </tr>
-   <tr>
-    <th>タグ</th>
-    <td>
-     <%= render 'form_tags', entry: @entry, f: f %>
-    </td>
-   </tr>
-  </table>
-  <p class="buttons"><%= f.submit '送信' %></p>
- <% end %>
-</section>
+<% @entry ||= Entry.new %>
+<%= form_for @entry do |f| %>
+ <%= render 'shared/error_messages', target: @entry %>
+ <table>
+  <tr>
+   <th>ファイル</th>
+   <td><%= f.file_field :photo, length: 60 %></td>
+  </tr>
+  <tr>
+   <th>コメント</th>
+   <td><%= f.text_area :body, size: '40x2' %></td>
+  </tr>
+  <tr>
+   <th>タグ</th>
+   <td>
+    <%= render 'form_tags', entry: @entry, f: f %>
+   </td>
+  </tr>
+ </table>
+ <p class="buttons"><%= f.submit '送信' %></p>
+<% end %>

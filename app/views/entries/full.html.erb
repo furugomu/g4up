@@ -1,5 +1,19 @@
 <article id="full">
+<p>
 <%= link_to(
       image_tag(@entry.photo.url(:original), alt: @entry.id, rel: 'photo'),
       @entry) %>
+</p>
+<p><%= @entry.body %></p>
+<footer>
+  <footer>
+   <% if @entry.root? %>
+    <span class="tags">
+     <% @entry.tags.each do |tag| %>
+      <%= link_to(tag.name, tag) %>
+     <% end %>
+    </span>
+   <% end %>
+   <%= link_to(entry_time(@entry), @entry) %>
+</footer>
 </article>
