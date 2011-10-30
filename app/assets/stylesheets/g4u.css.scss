@@ -3,23 +3,24 @@
 @import "common";
 
 body {
+  margin: 0;
   color: $font-color;
   background: $background-color;
   line-height: 1.8;
-  margin: $grid-margin;
+  > * {
+    margin: $grid-margin;
+  }
 }
-body#fullscreen {
+
+article#full {
+  width: 100%;
+  height: auto;
   margin: 0;
-  article {
+  .photo img {
     width: 100%;
-    height: auto;
-    margin: 0;
-    .photo img {
-      width: 100%;
-    }
-    footer {
-      text-align: right;
-    }
+  }
+  footer {
+    text-align: right;
   }
 }
 
@@ -34,7 +35,7 @@ body#fullscreen {
 }
 
 header {
-  margin: 10px 0 20px;
+  margin: $grid-margin $grid-margin $grid-margin*2;
   h1 {
     margin: 0;
     font: normal 60px / 100% sans-serif;
@@ -147,5 +148,4 @@ address {
 }
 
 .products {
-  margin: 40px 0;
 }

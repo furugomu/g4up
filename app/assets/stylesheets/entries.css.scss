@@ -5,7 +5,7 @@
 $thumb-width: 320px;
 
 .entries {
-  margin: $grid-margin (-$grid-margin/2);
+  margin: $grid-margin/2;
   clear: both;
   @include clearfix;
   article {
@@ -20,16 +20,8 @@ $thumb-width: 320px;
       height: 180px;
       vertical-align: top;
     }
-    .body {
-      margin: 5px;
-      font-size: 12px;
-    }
     footer {
-      margin: 5px;
       width: 300px;
-      font-size: 12px;
-      clear: left;
-      text-align: right;
       position: absolute;
       bottom: 0;
       right: 0;
@@ -37,7 +29,28 @@ $thumb-width: 320px;
   }
 }
 
-article { background-color: white; }
+article {
+  background-color: white;
+  width: 320px;
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+  margin: $grid-margin/2;
+  .thumb img {
+    width: 320px;
+    height: 180px;
+    vertical-align: top;
+  }
+  .body {
+    margin: 5px;
+    font-size: 12px;
+  }
+  footer {
+    margin: 5px;
+    font-size: 12px;
+    text-align: right;
+  }
+}
 
 form {
   width: span(18);
