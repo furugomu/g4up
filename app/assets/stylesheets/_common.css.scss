@@ -26,6 +26,8 @@ $link-visited-color: darken($link-color, 10%) !default;
 
 @mixin clearfix {
   &:after {
+    content: ""; 
+    display: block; 
     clear: both;
   }
 }

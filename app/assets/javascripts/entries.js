@@ -7,4 +7,8 @@ jQuery(function($) {
       alert('通報しました');
       return false;
     });
+  $("#open-form").click(function(e) {
+    $("#form-container").toggleClass("visible");
+    return false;
+  });
 });

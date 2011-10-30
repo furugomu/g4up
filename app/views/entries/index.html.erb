@@ -1,4 +1,8 @@
-<%= render 'form' %>
+<div id="form-container">
+ <p><%= link_to('アップロードする', [:new, :entry], id: 'open-form', class: 'button') %></p>
+ <%= render 'form' %>
+</div>
+
 <section class="entries">
 <% @entries.each do |entry| %>
  <%= render entry %>

@@ -1,4 +1,7 @@
-<%= content_tag(:article, class: Imas.romaji(entry.idol_tag), title: entry.body) do %>
+<%= content_tag(:article, {
+      class: Imas.romaji(entry.idol_tag),
+      title: entry.body,
+    }) do %>
  <% if entry.photo.present? %>
  <p class="thumb">
   <%= link_to(

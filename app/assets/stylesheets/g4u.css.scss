@@ -12,9 +12,13 @@ body#fullscreen {
   margin: 0;
   article {
     width: 100%;
+    height: auto;
     margin: 0;
     img {
       width: 100%;
+    }
+    footer {
+      text-align: right;
     }
   }
 }
@@ -46,14 +50,16 @@ header {
   }
 }
 
-button, input[type=submit], input[type=button] {
+button, input[type=submit], input[type=button], .button {
   border: solid 2px;
   background: #ddd;
   color: inherit;
   min-width: 6em;
   font-size: 120%;
+  text-decoration: none;
   &:hover, &:active {
     background: #fff;
+    color: inherit;
   }
   &:active {
     @include transform(translate(1px, 1px));
@@ -119,6 +125,22 @@ address {
     color: $link-hover-color;
   }
 }
-
-
+#form-container {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  padding: $grid-margin;
+  text-align: right;
+  form {
+    display: none;
+    text-align: left;
+  }
+  &.visible {
+    form { display: block; }
+    border: solid 1px;
+    border-style: none none solid solid;
+    background: inherit;
+  }
+}
 
