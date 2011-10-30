@@ -2,7 +2,7 @@ xml.instruct! :xml, :version => "1.0"
 xml.feed(xmlns: 'http://www.w3.org/2005/Atom') do |feed|
   feed.title 'G4Up'
   feed.author{|a|a.name("|")}
-  feed.id(href: root_url)
+  feed.id root_url
   feed.link(href: root_url)
   feed.link(rel: 'self', href: feed_atom_url)
   if (recent = @entries.first)
