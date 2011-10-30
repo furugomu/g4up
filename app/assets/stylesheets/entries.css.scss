@@ -13,7 +13,6 @@ $thumb-width: 320px;
     height: 240px;
     overflow: hidden;
     position: relative;
-    background-color: white;
     margin: 10px;
     .thumb img {
       width: 320px;
@@ -21,9 +20,6 @@ $thumb-width: 320px;
       vertical-align: top;
     }
     .body { display: none; }
-    .tags a {
-      color: #888;
-    }
     footer {
       margin: 10px;
       width: 300px;
@@ -37,6 +33,7 @@ $thumb-width: 320px;
   }
 }
 
+article { background-color: white; }
 
 form {
   width: span(18);
