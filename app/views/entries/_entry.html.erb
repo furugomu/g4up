@@ -10,7 +10,9 @@
  </p>
  <% end %>
  <div class="text">
-  <p class="body"><%= entry.body %></p>
+  <p class="body">
+   <%= entry.body.truncate(20) %>
+  </p>
   <footer>
    <% if entry.root? %>
     <span class="tags">
