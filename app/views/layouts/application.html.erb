@@ -6,6 +6,8 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width" />
+  <%= tag(:link, rel: 'alternate', type: 'application/atom+xml', 
+                 href: feed_atom_url, title: 'Atom feed') %>
 </head>
 <body>
  <% flash.each do |key, value| %>

@@ -23,4 +23,12 @@ module ApplicationHelper
   def idol_names
     %w(亜美 真美 やよい 伊織 美希 千早 響 春香 雪歩 真 貴音 律子 あずさ)
   end
+
+  def entry_full_path(entry)
+    polymorphic_path([:full, entry], filename: entry.filename)
+  end
+
+  def entry_full_url(entry)
+    polymorphic_url([:full, entry], filename: entry.filename)
+  end
 end
