@@ -5,14 +5,14 @@ class EntriesController < ApplicationController
   #cache_sweeper :entry_sweeper
 
   def index
-    @entries = Entry.root.recent.page(params[:page]).per(20)
+    @entries = Entry.root.recent.page(params[:page])
     # tag cloud
     #@tags = Entry.tag_counts_on(:tags)
   end
 
   def show
     @entry = Entry.find(params[:id])
-    @replies = @entry.replies.recent.page(params[:page]).per(20)
+    @replies = @entry.replies.recent.page(params[:page])
     @reply = @entry.replies.new
     respond_with @entry
   end

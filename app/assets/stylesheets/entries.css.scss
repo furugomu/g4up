@@ -5,6 +5,7 @@
 $thumb-width: 320px;
 
 .entries {
+  clear: both;
   @include clearfix;
   article {
     float: left;
@@ -50,4 +51,12 @@ form {
 }
 .errorExplanation {
   background-color: #efd0d0;
+}
+
+.pagination {
+  text-align: center;
+  .first, .last, .prev, .next, .page {
+    min-width: 22px;
+    margin: 0 5px;
+  }
 }

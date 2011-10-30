@@ -50,12 +50,14 @@ header {
   }
 }
 
-button, input[type=submit], input[type=button], .button {
+button, input[type=submit], input[type=button], .button,
+{
   border: solid 2px;
   background: #ddd;
   color: inherit;
   min-width: 6em;
   font-size: 120%;
+  text-align: center;
   text-decoration: none;
   &:hover, &:active {
     background: #fff;
