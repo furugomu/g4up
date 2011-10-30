@@ -1,0 +1,20 @@
+/* -*- css -*- */
+@media screen and (max-width: 320px) {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .entries {
+    margin: 10px 0;
+    article {
+      display: block;
+      margin: 10px 0;
+    }
+  }
+  form {
+    width: auto;
+  }
+  #form-container {
+    display: none;
+  }
+}
