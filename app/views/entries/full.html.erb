@@ -17,3 +17,6 @@
    <%= link_to(entry_time(@entry), @entry) %>
 </footer>
 </article>
+<% if @entry.root? %>
+ <p><%= link_to('タグを編集(仮)', [:edit, @entry]) %></p>
+<% end %>
