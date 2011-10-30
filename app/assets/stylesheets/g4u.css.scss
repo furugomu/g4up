@@ -120,10 +120,10 @@ address {
 }
 .makoto, .ritsuko, .chihaya, .azusa, .takane {
   color: #ddd;
-  :link {
+  :link, :visited {
     color: #ddd;
   }
-  :link:hover {
+  a:hover {
     color: $link-hover-color;
   }
 }
