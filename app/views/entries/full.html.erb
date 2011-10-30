@@ -1,15 +1,25 @@
+<script>
+Hatena.Star.SiteConfig = {
+  entryNodes: {
+    'article': {
+      uri: 'document.location',
+      title: 'footer',
+      container: '.body'
+    }
+  }
+};
+</script>
 <%= content_tag(:article, {
       class: Imas.romaji(@entry.idol_tag),
       id: "full",
     }) do %>
-<p>
+<p class="photo">
 <%= link_to(
       image_tag(@entry.photo.url(:original), alt: @entry.id, rel: 'photo'),
       :root) %>
 </p>
-<p><%= @entry.body %></p>
+<p class="body"><%= @entry.body %></p>
 <footer>
-  <footer>
    <% if @entry.root? %>
     <span class="tags">
      <% @entry.tags.each do |tag| %>
@@ -24,4 +34,5 @@
  <p><%= link_to('タグを編集(仮)', [:edit, @entry]) %></p>
 <% end %>
 
+<%= render 'shared/share' %>
 <%= render 'shared/affiliate' %>

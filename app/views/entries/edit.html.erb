@@ -1,5 +1,6 @@
 <%# -*- encoding: UTF-8 -*-%>
 <% entry = @entry %>
+<section class="entries">
 <article>
  <% if entry.photo.present? %>
  <p class="thumb">
@@ -22,6 +23,7 @@
   <%= entry_time(entry) %>
  </footer>
 </article>
+</section>
 
 <section>
  <h2>タグを編集</h2>
