@@ -23,6 +23,7 @@ class Entry < ActiveRecord::Base
     bucket: 'g4u',
   })
   acts_as_taggable
+  paginates_per 24
 
   attr_accessor :other_tags
   attr_accessible :photo, :body, :tag_list, :other_tags
@@ -30,8 +31,8 @@ class Entry < ActiveRecord::Base
   scope :recent, order("#{quoted_table_name}.created_at desc")
   scope :root, where(parent_id: nil)
 
-  validates :body, length: {maximum: 140}, presence: {if: :photo_blank?}
-  validates :photo, presence: {if: :body_blank?}
+  validates :body, length: {maximum: 140}
+  validates :photo, presence: {unless: :parent}
   validates_each :photo do |record, attr, photo|
     photo.queued_for_write[:original] or next
     dimensions = Paperclip::Geometry.from_file(photo.queued_for_write[:original])
@@ -39,6 +40,7 @@ class Entry < ActiveRecord::Base
       record.errors.add(attr, 'のサイズは 1280x720 にしてください。')
     end
   end
+  validates :photo_file_name, presence: {unless: :parent}
   validates_attachment_size :photo, :less_than => 600.kilobytes, message: 'は 600KB 以下にしてください。'
 
   before_validation :add_tag_from_filename

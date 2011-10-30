@@ -1,11 +1,16 @@
+<!--
+TODO:
+ フィード
+ スマートフォン
+ D&Dでアップロード
+ トップページをキャッシュ
+ ファビコン
+やった:
+ 画像の並び
+-->
 <div id="form-container">
  <p><%= link_to('アップロードする', [:new, :entry], id: 'open-form', class: 'button') %></p>
  <%= render 'form' %>
 </div>
 
-<section class="entries">
-<% @entries.each do |entry| %>
- <%= render entry %>
-<% end %>
-</section>
-<%= paginate @entries %>
+<%= render 'entries/entries', entries: @entries %>

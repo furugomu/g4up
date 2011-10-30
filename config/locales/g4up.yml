@@ -6,6 +6,14 @@ ja:
     attributes:
       entry:
         photo: 画像
+        photo_file_name: ファイル
         photo_file_size: ファイルサイズ
         body: コメント
         tag_list: タグ
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo;"
+      next: "&rsaquo;"
+      truncate: "..."
