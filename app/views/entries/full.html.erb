@@ -1,3 +1,4 @@
+<%= content_for :head do %>
 <script>
 Hatena.Star.SiteConfig = {
   entryNodes: {
@@ -9,6 +10,8 @@ Hatena.Star.SiteConfig = {
   }
 };
 </script>
+<% end %>
+
 <%= content_tag(:article, {
       class: Imas.romaji(@entry.idol_tag),
       id: "full",
@@ -30,9 +33,11 @@ Hatena.Star.SiteConfig = {
    <%= link_to(entry_time(@entry), @entry) %>
 </footer>
 <% end %>
+
+<%= render 'shared/share' %>
+
 <% if @entry.root? %>
  <p><%= link_to('タグを編集(仮)', [:edit, @entry]) %></p>
 <% end %>
 
-<%= render 'shared/share' %>
 <%= render 'shared/affiliate' %>
