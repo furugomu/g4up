@@ -31,4 +31,37 @@ module ApplicationHelper
   def entry_full_url(entry)
     polymorphic_url([:full, entry], filename: entry.filename)
   end
+
+  def article(options={}, &block)
+    content_tag_compat(:article, options, &block)
+  end
+  def section(options={}, &block)
+    content_tag_compat(:section, options, &block)
+  end
+  def header(options={}, &block)
+    content_tag_compat(:header, options, &block)
+  end
+  def footer(options={}, &block)
+    content_tag_compat(:footer, options, &block)
+  end
+
+  def ps3?
+    request.headers['User-Agent'].include?('PLAYSTATION 3')
+  end
+
+  private
+
+  # html5 を使えない人々
+  def legacy?
+    ps3? || true
+  end
+
+  def content_tag_compat(name, options={}, &block)
+    if legacy?
+      options[:class] =
+        [options[:class], name.to_s].reject(&:blank?).join(' ')
+      name = :div
+    end
+    content_tag(name, options, &block)
+  end
 end

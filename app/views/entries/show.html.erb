@@ -4,10 +4,10 @@
 <% end %>
 <%= render 'replies', replies: @replies if @entry.root? %>
 <% if @entry.parent %>
- <section>
+ <%= section do %>
   <h2>返信先</h2>
   <%= render @entry.parent %>
- </section>
+ <% end %>
 <% end %>
 <% if @entry.root? %>
 <%= render 'replies/form', entry: @entry, reply: @reply %>

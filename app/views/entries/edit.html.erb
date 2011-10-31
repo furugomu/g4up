@@ -1,31 +1,7 @@
 <%# -*- encoding: UTF-8 -*-%>
-<% entry = @entry %>
-<section class="entries">
-<article>
- <% if entry.photo.present? %>
- <p class="thumb">
-  <%= link_to(
-        image_tag(entry.photo.url(:thumb), alt: entry.id, rel: 'photo'),
-        entry.photo.url) %>
- </p>
- <% end %>
- <p class="body"><%= entry.body %></p>
- <footer>
-  <span class="tags">
-   <% if entry.tags.present? %>&hearts;<% end %>
-   <% entry.tags.each do |tag| %>
-    <%= link_to(tag.name, tag) %>
-   <% end %>
-  </span>
-  <span>
-   &spades;<%= entry.replies_count %>
-  </span>
-  <%= entry_time(entry) %>
- </footer>
-</article>
-</section>
+<%= render @entry %>
 
-<section>
+<%= section do %>
  <h2>タグを編集</h2>
  <%= form_for @entry do |f| %>
   <table>
@@ -38,4 +14,4 @@
   </table>
   <p class="buttons"><%= f.submit '更新' %></p>
  <% end %>
-</section>
+<% end %>

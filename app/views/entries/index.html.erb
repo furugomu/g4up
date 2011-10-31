@@ -11,9 +11,14 @@ TODO:
  画像の並び
  autopagerize
 -->
+<% if ps3? %>
+ <h2>アップロードする</h2>
+ <%= render 'form' %>
+<% else %>
 <div id="form-container">
  <p><%= link_to('アップロードする', [:new, :entry], id: 'open-form', class: 'button') %></p>
  <%= render 'form' %>
 </div>
+<% end %>
 
 <%= render 'entries/entries', entries: @entries %>
