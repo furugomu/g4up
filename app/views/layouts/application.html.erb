@@ -19,10 +19,10 @@
  <% flash.each do |key, value| %>
   <%= content_tag :p, value, class: 'flash %s' % key %>
  <% end %>
- <header>
+ <%= header do %>
   <h1><%= link_to 'G4Up', :root %></h1>
   <p><abbr title="アイドルマスター グラビアフォーユー！">G4U</abbr> で撮影した写真を自慢しよう</p>
- </header>
+ <% end %>
 <%= yield %>
 <address>
  <a href="http://twitter.com/furugomu">@furugomu</a> |

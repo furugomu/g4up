@@ -8,7 +8,7 @@ $thumb-width: 320px;
   margin: $grid-margin/2;
   clear: both;
   @include clearfix;
-  article {
+  article, .article {
     float: left;
     width: 320px;
     height: 240px;
@@ -20,7 +20,7 @@ $thumb-width: 320px;
       height: 180px;
       vertical-align: top;
     }
-    footer {
+    footer, .footer {
       width: 300px;
       position: absolute;
       bottom: 0;
@@ -29,7 +29,7 @@ $thumb-width: 320px;
   }
 }
 
-article {
+article, .article {
   background-color: white;
   width: 320px;
   height: 240px;
@@ -45,7 +45,7 @@ article {
     margin: 5px;
     font-size: 12px;
   }
-  footer {
+  footer, .footer {
     margin: 5px;
     font-size: 12px;
     text-align: right;

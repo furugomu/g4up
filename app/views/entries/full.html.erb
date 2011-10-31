@@ -12,7 +12,7 @@ Hatena.Star.SiteConfig = {
 </script>
 <% end %>
 
-<%= content_tag(:article, {
+<%= article({
       class: Imas.romaji(@entry.idol_tag),
       id: "full",
     }) do %>
@@ -22,7 +22,7 @@ Hatena.Star.SiteConfig = {
       :root) %>
 </p>
 <p class="body"><%= @entry.body %></p>
-<footer>
+<%= footer do %>
    <% if @entry.root? %>
     <span class="tags">
      <% @entry.tags.each do |tag| %>
@@ -31,7 +31,7 @@ Hatena.Star.SiteConfig = {
     </span>
    <% end %>
    <%= link_to(entry_time(@entry), @entry) %>
-</footer>
+<% end %>
 <% end %>
 
 <%= render 'shared/share' %>

@@ -1,4 +1,4 @@
-<section>
+<%= section do %>
 <h1>これに返信</h1>
 <%= form_for [@entry, @reply] do |f| %>
  <table>
@@ -13,4 +13,4 @@
  </table>
  <p class="buttons"><%= f.submit '送信' %></p>
 <% end %>
-</section>
+<% end %>

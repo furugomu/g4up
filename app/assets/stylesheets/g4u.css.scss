@@ -12,7 +12,7 @@ body {
   }
 }
 
-article#full {
+#full {
   width: 100%;
   height: auto;
   margin: 0;
@@ -34,7 +34,7 @@ article#full {
   color: $link-visited-color;
 }
 
-header {
+header, .header {
   margin: $grid-margin $grid-margin $grid-margin*2;
   h1 {
     margin: 0;
@@ -71,6 +71,10 @@ button, input[type=submit], input[type=button], .button,
 
 a img {
   border: none;
+}
+
+footer, .footer {
+  clear: both;
 }
 
 .flash {
@@ -128,6 +132,7 @@ address {
     color: $link-hover-color;
   }
 }
+
 #form-container {
   position: absolute;
   z-index: 10;
