@@ -3,6 +3,7 @@ G4up::Application.routes.draw do
   get "replies/new" # TODO いらないはずなので確認してから消す
 
   match 'pages/:page' => 'entries#index'
+  root to: 'entries#index'
   resources :entries do
     member do
       get 'full/*filename' => 'entries#full', as: :full
@@ -12,7 +13,6 @@ G4up::Application.routes.draw do
     resources :complaints
   end
   resources :tags, as: :acts_as_taggable_on_tags
-  root to: 'entries#index'
 
   match 'feed/atom' => 'feed#atom', format: 'xml'
 

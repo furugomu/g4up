@@ -6,3 +6,4 @@ tmp/
 .sass-cache/
 public/system
 public/assets
+public/index.html

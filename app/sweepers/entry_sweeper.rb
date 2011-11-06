@@ -19,6 +19,6 @@ class EntrySweeper < ActionController::Caching::Sweeper
   private
   def expire_cache_for(entry)
     # Expire the index page now that we added a new entry
-    expire_page(controller: :entries, action: :index)
+    expire_page('/index')
   end
 end

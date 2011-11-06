@@ -2,8 +2,8 @@ class EntriesController < ApplicationController
   respond_to :html, :json, :js
   include ApplicationHelper
 
-  #caches_page :index
-  #cache_sweeper :entry_sweeper
+  caches_page :index, :if=>lambda{|c| c.params[:page].nil? }
+  cache_sweeper :entry_sweeper
 
   def index
     @entries = Entry.root.recent.includes(:tags).page(params[:page])
