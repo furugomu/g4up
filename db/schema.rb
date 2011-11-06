@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111021113308) do
+ActiveRecord::Schema.define(:version => 20111106180155) do
 
   create_table "complaints", :force => true do |t|
     t.integer  "entry_id",   :null => false
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20111021113308) do
 
   add_index "entries", ["created_at"], :name => "index_entries_on_created_at"
   add_index "entries", ["parent_id"], :name => "index_entries_on_parent_id"
+  add_index "entries", ["photo_fingerprint"], :name => "index_entries_on_photo_fingerprint"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"

@@ -8,6 +8,7 @@ ja:
         photo: 画像
         photo_file_name: ファイル
         photo_file_size: ファイルサイズ
+        photo_fingerprint: ファイル
         body: コメント
         tag_list: タグ
   views:
