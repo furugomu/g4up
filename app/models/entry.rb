@@ -42,6 +42,7 @@ class Entry < ActiveRecord::Base
   end
   validates :photo_file_name, presence: {unless: :parent}
   validates_attachment_size :photo, :less_than => 600.kilobytes, message: 'は 600KB 以下にしてください。'
+  validates :photo_fingerprint, uniqueness: true
 
   before_validation :add_tag_from_filename
   before_save :add_other_tags
