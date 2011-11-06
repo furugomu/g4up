@@ -20,7 +20,9 @@ class EntriesController < ApplicationController
 
   def full
     @entry = Entry.find(params[:id])
-    if request.referrer.blank?
+    # 2ch ビューア等のインライン表示のため、
+    # g4uxxx.jpg に直接来たら画像だけ表示。
+    if params[:filename].present? && request.referrer.blank?
       redirect_to @entry.photo.url(:original) and return
     end
     render :layout=>'fullscreen'
