@@ -46,9 +46,9 @@ class EntriesController < ApplicationController
 
   def update
     @entry = Entry.root.find(params[:id])
-    @entry.tag_list = params[:entry][:tag_list]
+    @entry.attributes = params[:entry].slice(:tag_list, :other_tags)
     @entry.save()
-    redirect_to @entry
+    redirect_to entry_full_url(@entry)
   end
 
   private
