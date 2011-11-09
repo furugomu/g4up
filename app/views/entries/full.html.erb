@@ -1,17 +1,3 @@
-<%= content_for :head do %>
-<script>
-Hatena.Star.SiteConfig = {
-  entryNodes: {
-    'article': {
-      uri: 'document.location',
-      title: 'footer',
-      container: '.body'
-    }
-  }
-};
-</script>
-<% end %>
-
 <%= article({
       class: Imas.romaji(@entry.idol_tag),
       id: "full",
