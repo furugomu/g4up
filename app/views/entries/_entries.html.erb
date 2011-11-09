@@ -1,15 +1,4 @@
 <%= paginate entries %>
-<script>
-Hatena.Star.SiteConfig = {
-  entryNodes: {
-    'article': {
-      uri: '.thumb a',
-      title: 'footer',
-      container: '.body'
-    }
-  }
-};
-</script>
 <%= section class: "entries autopagerize_page_element" do %>
 <% entries.each do |entry| %>
  <%= render entry %>
