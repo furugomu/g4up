@@ -46,7 +46,19 @@ module ApplicationHelper
   end
 
   def ps3?
-    request.headers['User-Agent'].include?('PLAYSTATION 3')
+    request.headers['User-Agent'].to_s.include?('PLAYSTATION 3')
+  end
+
+  def lazy_image(src, options={})
+    if request.xhr?
+      return image_tag(src, options)
+    end
+    script = javascript_tag(
+      'document.write("' +
+      j(image_tag('blank.gif', {'data-src'=>src}.merge(options))) +
+      '");')
+    noscript = content_tag(:noscript, image_tag(src, options))
+    script+noscript
   end
 
   private
