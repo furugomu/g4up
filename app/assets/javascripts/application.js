@@ -7,4 +7,22 @@
 //= require jquery
 //= require jquery_ujs
 //= require entries
+//= require jquery.lazyload2
 //= require ga
+//= require_self
+jQuery(function($) {
+  $(document).lazyload2('img');
+  function autopagerHandler(e) {
+    console.log('autopagerHandler');
+    $(e.target).lazyload2();
+  }
+  if (document.body && document.body.addEventListener) {
+    $([
+      'AutoPagerize_DOMNodeInserted',
+      'AutoPagerAfterInsert',
+      'AutoPatchWork.DOMNodeInserted'
+    ]).each(function() {
+      document.body.addEventListener(this, autopagerHandler, false);
+    });
+  }
+});
