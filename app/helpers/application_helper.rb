@@ -50,22 +50,17 @@ module ApplicationHelper
   end
 
   def lazy_image(src, options={})
-    if request.xhr?
-      return image_tag(src, options)
-    end
-    script = javascript_tag(
-      'document.write("' +
-      j(image_tag('blank.gif', {'data-src'=>src}.merge(options))) +
-      '");')
+    placeholder = content_tag(
+      :span, "", data: options.merge(src: src), 'class'=>'lazyload')
     noscript = content_tag(:noscript, image_tag(src, options))
-    script+noscript
+    placeholder+noscript
   end
 
   private
 
   # html5 を使えない人々
   def legacy?
-    ps3? || true
+    ps3?
   end
 
   def content_tag_compat(name, options={}, &block)
