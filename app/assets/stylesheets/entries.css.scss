@@ -68,6 +68,7 @@ form {
 }
 
 .pagination {
+  clear: both;
   text-align: center;
   .first, .last, .prev, .next, .page {
     min-width: 22px;

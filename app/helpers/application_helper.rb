@@ -44,12 +44,21 @@ module ApplicationHelper
   def footer(options={}, &block)
     content_tag_compat(:footer, options, &block)
   end
+  def nav(options={}, &block)
+    content_tag_compat(:nav, options, &block)
+  end
 
   def ps3?
     request.headers['User-Agent'].to_s.include?('PLAYSTATION 3')
   end
 
+  # html5 を使えない人々
+  def legacy?
+    ps3?
+  end
+
   def lazy_image(src, options={})
+    return image_tag(src, options) if ps3?
     placeholder = content_tag(
       :span, "", data: options.merge(src: src), 'class'=>'lazyload')
     noscript = content_tag(:noscript, image_tag(src, options))
@@ -57,11 +66,6 @@ module ApplicationHelper
   end
 
   private
-
-  # html5 を使えない人々
-  def legacy?
-    ps3?
-  end
 
   def content_tag_compat(name, options={}, &block)
     if legacy?
