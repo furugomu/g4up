@@ -4,7 +4,7 @@
   $.fn.lazyload2 = function(selector, options) {
     if (!selector) selector = 'img';
     var images = this.find(selector).get();
-    var margin = 10;
+    var margin = 100;
     $(window).on('scroll', function() {
       var notLoaded = [];
       $(images).each(function(i) {
