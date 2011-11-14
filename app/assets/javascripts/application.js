@@ -11,10 +11,9 @@
 //= require ga
 //= require_self
 jQuery(function($) {
-  $(document).lazyload2('img');
+  $(document).lazyload2('.lazyload');
   function autopagerHandler(e) {
-    console.log('autopagerHandler');
-    $(e.target).lazyload2();
+    $(e.target).lazyload2('.lazyload');
   }
   if (document.body && document.body.addEventListener) {
     $([

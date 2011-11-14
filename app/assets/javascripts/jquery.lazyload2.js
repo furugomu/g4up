@@ -11,8 +11,12 @@
         if (!$(this).data('src')) return;
         var bottom = $(window).scrollTop() + $(window).height();
         if ($(this).offset().top < bottom + margin) {
-          console.log($(this).offset().top, $(this).data('src'));
-          $(this).attr('src', $(this).data('src'));
+          if (this.nodeName == 'IMG') {
+            $(this).attr('src', $(this).data('src'));
+          }
+          else {
+            $(this).replaceWith($('<img />').attr($(this).data()));
+          }
         }
         else {
           notLoaded.push(this);
@@ -21,15 +25,6 @@
       images = notLoaded;
     });
     $(window).trigger('scroll');
+    return this;
   }
-  function autopagerHandler(e) {
-    console.log('autopagerHandler');
-    $(e.target).lazyload2();
-  }
-  /*
-  $('body')
-    .on('AutoPagerize_DOMNodeInserted', autopagerHandler)
-    .on('AutoPatchWork.DOMNodeInserted', autopagerHandler)
-    .on('AutoPagerAfterInsert', autopagerHandler);
-   */
 })(jQuery);
