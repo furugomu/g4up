@@ -1,6 +1,7 @@
 # -*- encoding: UTF-8 -*-
 module ApplicationHelper
   def time(time, label, options={})
+    options = options.reverse_merge(datetime: time.iso8601)
     options[:pubdate] = "pubdate" if options[:pubdate]
     content_tag(:time, label, options)
   end

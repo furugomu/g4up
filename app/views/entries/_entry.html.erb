@@ -5,7 +5,7 @@
  <% if entry.photo.present? %>
  <p class="thumb">
   <%= link_to(
-        lazy_image(entry.photo.url(:thumb), alt: entry.id, rel: 'photo'),
+        lazy_image(entry.photo.url(:thumb), alt: entry.id),
         entry_full_path(entry)) %>
  </p>
  <% end %>
