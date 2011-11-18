@@ -31,5 +31,5 @@ gem 'capistrano'
 
 gem 'rspec-rails'
 group :test do
-  #gem 'factorygirl-rails'
+  gem 'factory_girl_rails'
 end
