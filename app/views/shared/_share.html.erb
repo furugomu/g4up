@@ -6,7 +6,14 @@
 
 <%= section class: "share" do %>
 <p>
- <a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-lang="ja">ツイート</a>
+ <%= link_to(t(:tweet), "https://twitter.com/share",
+             class: "twitter-share-button",
+             data: {
+               count: 'horizontal',
+               lang: 'ja',
+               text: tweet_text(),
+               url: @entry ? entry_full_url(@entry) : nil,
+             }) %>
  <g:plusone size="medium"></g:plusone>
 </p>
 <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>

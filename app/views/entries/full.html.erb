@@ -1,3 +1,6 @@
+<% content_for :head do %>
+ <%= tag(:link, rel: 'canonical', href: polymorphic_url([:full, @entry], filename: nil)) %>
+<% end %>
 <%= article({
       class: Imas.romaji(@entry.idol_tag),
       id: "full",

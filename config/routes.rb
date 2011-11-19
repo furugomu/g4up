@@ -6,7 +6,7 @@ G4up::Application.routes.draw do
   root to: 'entries#index'
   resources :entries do
     member do
-      get 'full/*filename' => 'entries#full', as: :full
+      get 'full(/*filename)' => 'entries#full', as: :full
       get :full # 後方互換
     end
     resources :replies, as: :entries
