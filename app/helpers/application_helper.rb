@@ -1,5 +1,13 @@
 # -*- encoding: UTF-8 -*-
 module ApplicationHelper
+  def title()
+    content_tag(:title, title_text())
+  end
+
+  def tweet_text
+    title_text() + ' #g4u'
+  end
+
   def time(time, label, options={})
     options = options.reverse_merge(datetime: time.iso8601)
     options[:pubdate] = "pubdate" if options[:pubdate]
@@ -67,6 +75,16 @@ module ApplicationHelper
   end
 
   private
+
+  def title_text()
+    items = ['G4Up']
+    if @title
+      items << @title
+    elsif @entry && @entry.tag_list.present?
+      items << @entry.tag_list.join(' ')
+    end
+    items.join(' - ')
+  end
 
   def content_tag_compat(name, options={}, &block)
     if legacy?

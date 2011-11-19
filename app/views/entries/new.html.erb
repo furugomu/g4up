@@ -1,3 +1,6 @@
+<% content_for :head do %>
+ <%= tag(:meta, name: 'robots', cntent: 'noindex') %>
+<% end %>
 <section class="upload">
  <h2>ファイルをアップロードする</h2>
 <%= render 'form' %>
