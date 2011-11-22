@@ -29,6 +29,7 @@ gem 'capistrano'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
+gem 'rspec-rails'
 group :test do
-  gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
