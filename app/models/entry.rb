@@ -61,20 +61,33 @@ class Entry < ActiveRecord::Base
   end
 
   def change_storage(new_storage)
+    # TODO テストする
     old_storage = self.storage
-    old_path = photo.path
+    old_pathes = photo.styles.keys.map{|x|photo.path(x)} + [photo.path]
     file = photo.to_file
     update_attribute(:storage, new_storage)
-    self.reload
-    self.photo = file
-    self.save
+    new_record = self.class.find(self.id)
+    new_record.photo = file
+    new_record.save
     if old_storage == 'filesystem'
-      File.unlink(old_path)
+      old_pathes.each do |path|
+        File.unlink(path)
+      end
     end
   end
 
   def idol_tag
     self.tag_list.detect{|x|Imas.idol_names.include?(x)}
+  end
+
+  class << self
+    # 古いのを s3 に移す
+    def archive
+      # TODO テストする
+      where(storage: 'filesystem').order('id desc').offset(1000).each do |entry|
+        entry.change_storage('s3')
+      end
+    end
   end
 
   private
