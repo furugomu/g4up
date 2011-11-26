@@ -13,7 +13,7 @@ xml.feed(xmlns: 'http://www.w3.org/2005/Atom') do |feed|
       entry.id polymorphic_url(e)
       entry.title e.tags.map(&:name).join(' ')
       entry.link(href: entry_full_url(e), rel: 'alternate')
-      if entry.photo.present?
+      if e.photo.present?
         entry.link(
           href: e.photo.url(:original),
           rel: 'enclosure',
