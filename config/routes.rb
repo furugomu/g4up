@@ -9,6 +9,7 @@ G4up::Application.routes.draw do
       get 'full(/*filename)' => 'entries#full', as: :full
       get :full # 後方互換
     end
+    collection { get :search }
     resources :replies, as: :entries
     resources :complaints
   end
