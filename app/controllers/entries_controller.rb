@@ -8,7 +8,7 @@ class EntriesController < ApplicationController
   def index
     @entries = Entry.root.recent.includes(:tags).page(params[:page])
     # tag cloud
-    #@tags = Entry.tag_counts_on(:tags)
+    @tags = Entry.tag_counts_on(:tags).order('count desc').limit(13)
   end
 
   def show
