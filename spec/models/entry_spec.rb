@@ -2,9 +2,15 @@
 require 'spec_helper'
 
 describe Entry do
-  it 'storage の初期値は filesystem' do
-    e = Entry.new()
-    e.storage.should == 'filesystem'
+  describe 'new' do
+    subject { Entry.new }
+    it { should_not be_valid }
+    its(:storage) { should == 'filesystem' }
+  end
+
+  describe 'from factory' do
+    subject { create(:entry) }
+    it { should be_valid }
   end
 
   it 'タグは空白区切り' do
@@ -12,9 +18,38 @@ describe Entry do
     e.tag_list.should == ['う', 'ん', 'こ']
   end
 
-  it '画像を添付' do
-    e = Entry.new(photo: Rails.root.join('spec','files','imas9393.jpg').open())
-    e.should be_valid
-    #e.save
+  describe 'with photo(伊織.jpg)' do
+    subject {
+      Entry.new(photo: Rails.root.join('spec','files','伊織.jpg').open()).tap(&:valid?)
+    }
+    it { should be_valid }
+    its(:tag_list) { should be_include('伊織') }
+  end
+
+  describe 'setting other_tags' do
+    before do
+      @tags = 'う ど ん'
+    end
+    subject {
+      create(:entry).tap{|e| e.other_tags = @tags; e.valid? }
+    }
+    its(:other_tags) { should == @tags }
+    its(:tag_list) { should == @tags.split(/ /) }
+  end
+
+  describe 'search by date' do
+    before do
+      (9..12).each do |day|
+        build(:entry, created_at: Time.zone.local(2011, 11, day)).save(validate: false)
+      end
+    end
+    it '>= 2011-11-11' do
+      e = Entry.date_from('2011-11-11').order('created_at asc').first
+      e.created_at.should == Time.zone.local(2011, 11, 11)
+    end
+    it '<= 2011-11-11' do
+      e = Entry.date_to('2011-11-11').order('created_at desc').first
+      e.created_at.should == Time.zone.local(2011, 11, 11)
+    end
   end
 end
