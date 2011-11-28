@@ -30,6 +30,14 @@ class Entry < ActiveRecord::Base
 
   scope :recent, order("#{quoted_table_name}.created_at desc")
   scope :root, where(parent_id: nil)
+  scope :date_from, lambda{|time|
+    time = Time.zone.parse(time) if time.is_a?(String)
+    where(["#{quoted_table_name}.created_at >= ?", time])
+  }
+  scope :date_to, lambda{|time|
+    time = Time.zone.parse(time) if time.is_a?(String)
+    where(["#{quoted_table_name}.created_at <= ?", time])
+  }
 
   validates :body, length: {maximum: 140}
   validates :photo, presence: {unless: :parent}
@@ -45,7 +53,7 @@ class Entry < ActiveRecord::Base
   validates :photo_fingerprint, uniqueness: true
 
   before_validation :add_tag_from_filename
-  before_save :add_other_tags
+  before_validation :add_other_tags
 
   def censor!
     update_attribute(:censored, true)
