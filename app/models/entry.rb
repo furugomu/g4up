@@ -69,7 +69,6 @@ class Entry < ActiveRecord::Base
   end
 
   def change_storage(new_storage)
-    # TODO テストする
     old_storage = self.storage
     old_pathes = photo.styles.keys.map{|x|photo.path(x)} + [photo.path]
     file = photo.to_file
@@ -90,10 +89,10 @@ class Entry < ActiveRecord::Base
 
   class << self
     # 古いのを s3 に移す
-    def archive
-      # TODO テストする
-      where(storage: 'filesystem').order('id desc').offset(1000).each do |entry|
-        entry.change_storage('s3')
+    def archive(new_storage='s3', offset=1000)
+      where(storage: 'filesystem').order('id desc').offset(offset).each do |entry|
+        logger.debug('change_storage: %d, %s' % [entry.id, entry.photo.path])
+        entry.change_storage(new_storage)
       end
     end
   end
