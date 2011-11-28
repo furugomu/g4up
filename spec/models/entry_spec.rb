@@ -40,16 +40,19 @@ describe Entry do
   describe 'search by date' do
     before do
       (9..12).each do |day|
-        build(:entry, created_at: Time.zone.local(2011, 11, day)).save(validate: false)
+        [[0,0,0], [23,59,59]].each do |h, m, s|
+          t = Time.zone.local(2011, 11, day, h, m, s)
+          build(:entry, created_at: t).save(validate: false)
+        end
       end
     end
-    it '>= 2011-11-11' do
+    it '>= 2011-11-11 00:00:00' do
       e = Entry.date_from('2011-11-11').order('created_at asc').first
-      e.created_at.should == Time.zone.local(2011, 11, 11)
+      e.created_at.should == Time.zone.local(2011, 11, 11, 0, 0, 0)
     end
-    it '<= 2011-11-11' do
+    it '<= 2011-11-11 23:59:59' do
       e = Entry.date_to('2011-11-11').order('created_at desc').first
-      e.created_at.should == Time.zone.local(2011, 11, 11)
+      e.created_at.should == Time.zone.local(2011, 11, 11, 23, 59, 59)
     end
   end
 end

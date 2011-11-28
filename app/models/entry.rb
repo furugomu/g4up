@@ -36,7 +36,7 @@ class Entry < ActiveRecord::Base
   }
   scope :date_to, lambda{|time|
     time = Time.zone.parse(time) if time.is_a?(String)
-    where(["#{quoted_table_name}.created_at <= ?", time])
+    where(["#{quoted_table_name}.created_at <= ?", time.end_of_day])
   }
 
   validates :body, length: {maximum: 140}
