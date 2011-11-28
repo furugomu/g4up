@@ -1,3 +1,4 @@
+# -*- encoding: UTF-8 -*-
 class EntriesController < ApplicationController
   respond_to :html, :json, :js
   include ApplicationHelper
@@ -49,6 +50,19 @@ class EntriesController < ApplicationController
     @entry.attributes = params[:entry].slice(:tag_list, :other_tags)
     @entry.save()
     redirect_to entry_full_url(@entry)
+  end
+
+  def search
+    entries = Entry.root.recent.includes(:tags).page(params[:page])
+    begin
+      entries = entries.date_from(params[:from]) if params[:from].present?
+      entries = entries.date_to(params[:to]) if params[:to].present?
+    rescue ArgumentError
+      #flash[:error] = '日付がおかしい'
+    end
+    entries = entries.tagged_with(params[:tag]) if params[:tag].present?
+    @entries = entries
+    render :index
   end
 
   private
