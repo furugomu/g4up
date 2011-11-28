@@ -1,0 +1,5 @@
+<%= nav class: 'tag-cloud' do %>
+<% @tags.each do |tag| %>
+<%= link_to(tag.name, tag, class: 'tag %s' % Imas.romaji(tag.name)) %>
+<% end %>
+<% end %>
