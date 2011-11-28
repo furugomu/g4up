@@ -25,7 +25,7 @@ class Entry < ActiveRecord::Base
   acts_as_taggable
   paginates_per 24
 
-  attr_accessor :other_tags
+  attr_writer :other_tags
   attr_accessible :photo, :body, :tag_list, :other_tags
 
   scope :recent, order("#{quoted_table_name}.created_at desc")
@@ -88,6 +88,11 @@ class Entry < ActiveRecord::Base
         entry.change_storage('s3')
       end
     end
+  end
+
+  def other_tags
+    @other_tags ||
+      tag_list.reject{|x| Imas.idol_names.include?(x)}.join(' ')
   end
 
   private
