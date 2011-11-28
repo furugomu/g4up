@@ -2,4 +2,5 @@
 <% @tags.each do |tag| %>
 <%= link_to(tag.name, tag, class: 'tag %s' % Imas.romaji(tag.name)) %>
 <% end %>
+<%= link_to('あみまみ', '/tags/亜美 真美?any=1', class: 'tag ami mami') %>
 <% end %>
