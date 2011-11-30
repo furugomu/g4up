@@ -23,7 +23,7 @@ class Entry < ActiveRecord::Base
     bucket: 'g4u',
   })
   acts_as_taggable
-  paginates_per 24
+  paginates_per 48
 
   attr_writer :other_tags
   attr_accessible :photo, :body, :tag_list, :other_tags
