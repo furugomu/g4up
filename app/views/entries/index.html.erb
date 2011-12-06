@@ -22,6 +22,6 @@ TODO:
 </div>
 <% end %>
 
-<%= render 'tags' %>
+<%= render 'tags', tags: @tags if @tags %>
 
 <%= render 'entries/entries', entries: @entries %>

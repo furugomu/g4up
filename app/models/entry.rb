@@ -23,13 +23,21 @@ class Entry < ActiveRecord::Base
     bucket: 'g4u',
   })
   acts_as_taggable
-  paginates_per 24
+  paginates_per 48
 
   attr_writer :other_tags
   attr_accessible :photo, :body, :tag_list, :other_tags
 
   scope :recent, order("#{quoted_table_name}.created_at desc")
   scope :root, where(parent_id: nil)
+  scope :date_from, lambda{|time|
+    time = Time.zone.parse(time) if time.is_a?(String)
+    where(["#{quoted_table_name}.created_at >= ?", time])
+  }
+  scope :date_to, lambda{|time|
+    time = Time.zone.parse(time) if time.is_a?(String)
+    where(["#{quoted_table_name}.created_at <= ?", time.end_of_day])
+  }
 
   validates :body, length: {maximum: 140}
   validates :photo, presence: {unless: :parent}
@@ -45,7 +53,7 @@ class Entry < ActiveRecord::Base
   validates :photo_fingerprint, uniqueness: true
 
   before_validation :add_tag_from_filename
-  before_save :add_other_tags
+  before_validation :add_other_tags
 
   def censor!
     update_attribute(:censored, true)
@@ -61,7 +69,6 @@ class Entry < ActiveRecord::Base
   end
 
   def change_storage(new_storage)
-    # TODO テストする
     old_storage = self.storage
     old_pathes = photo.styles.keys.map{|x|photo.path(x)} + [photo.path]
     file = photo.to_file
@@ -82,10 +89,10 @@ class Entry < ActiveRecord::Base
 
   class << self
     # 古いのを s3 に移す
-    def archive
-      # TODO テストする
-      where(storage: 'filesystem').order('id desc').offset(1000).each do |entry|
-        entry.change_storage('s3')
+    def archive(new_storage='s3', offset=1000)
+      where(storage: 'filesystem').order('id desc').offset(offset).each do |entry|
+        logger.debug('change_storage: %d, %s' % [entry.id, entry.photo.path])
+        entry.change_storage(new_storage)
       end
     end
   end
