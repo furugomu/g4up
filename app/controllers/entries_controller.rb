@@ -22,7 +22,7 @@ class EntriesController < ApplicationController
     @entry = Entry.find(params[:id])
     # 2ch ビューア等のインライン表示のため、
     # g4uxxx.jpg に直接来たら画像だけ表示。
-    if params[:filename].present? && request.referrer.blank?
+    if params[:filename].present? && _2ch_viewer?
       redirect_to @entry.photo.url(:original) and return
     end
     render :layout=>'fullscreen'
@@ -52,6 +52,12 @@ class EntriesController < ApplicationController
   end
 
   private
+
+  def _2ch_viewer?
+    ua = request.headers['User-Agent']
+    %w(BB2C Monazilla).any?{|name| ua.include?(name)} ||
+      request.referrer.blank?
+  end
 
   def redirect_to(url)
     return super unless ps3?
