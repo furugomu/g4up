@@ -90,7 +90,10 @@ class Entry < ActiveRecord::Base
   class << self
     # 古いのを s3 に移す
     def archive(new_storage='s3', offset=1000)
-      where(storage: 'filesystem').order('id desc').offset(offset).each do |entry|
+      entries = where("photo_filename <> ''").
+                where(storage: 'filesystem').
+                order('id desc').offset(offset)
+      entries.each do |entry|
         logger.debug('change_storage: %d, %s' % [entry.id, entry.photo.path])
         entry.change_storage(new_storage)
       end
