@@ -1,6 +1,7 @@
 // -*- css -*-
 
 @import "common";
+@import "imas";
 
 $thumb-width: 320px;
 
@@ -11,28 +12,48 @@ $thumb-width: 320px;
   article, .article {
     float: left;
     width: 320px;
-    height: 240px;
+    height: 180px;
     overflow: hidden;
     position: relative;
     margin: $grid-margin/2;
-    .thumb img {
+    .thumbnail img {
       width: 320px;
       height: 180px;
       vertical-align: top;
     }
-    footer, .footer {
-      width: 300px;
+    .text {
       position: absolute;
-      bottom: 0;
-      right: 0;
+      left: 0; bottom: 0; width: 100%;
+      visibility: hidden;
+      opacity: 0;
+      -moz-transition: opacity 500ms ease;
+      -webkit-transition: opacity 500ms ease;
+      transition: opacity 500ms ease;
+    }
+    &:hover .text {
+      visibility: visible;
+      opacity: 1;
     }
   }
+  $text-alpha: 0.8;
+  .text { background-color: rgba($haruka-color, $text-alpha); }
+  .haruka .text { background-color: rgba($haruka-color, $text-alpha); }
+  .chihaya .text { background-color: rgba($chihaya-color, $text-alpha); }
+  .yukiho .text { background-color: rgba($yukiho-color, $text-alpha); }
+  .yayoi .text { background-color: rgba($yayoi-color, $text-alpha); }
+  .ritsuko .text { background-color: rgba($ritsuko-color, $text-alpha); }
+  .azusa .text { background-color: rgba($azusa-color, $text-alpha); }
+  .iori .text { background-color: rgba($iori-color, $text-alpha); }
+  .makoto .text { background-color: rgba($makoto-color, $text-alpha); }
+  .ami .text { background-color: rgba($ami-color, $text-alpha); }
+  .mami .text { background-color: rgba($mami-color, $text-alpha); }
+  .miki .text { background-color: rgba($miki-color, $text-alpha); }
+  .hibiki .text { background-color: rgba($hibiki-color, $text-alpha); }
+  .takane .text { background-color: rgba($takane-color, $text-alpha); }
 }
 
 article, .article {
   background-color: white;
-  width: 320px;
-  height: 240px;
   overflow: hidden;
   position: relative;
   margin: $grid-margin/2;

@@ -1,9 +1,8 @@
 <%= article({
       class: Imas.romaji(entry.idol_tag),
-      title: entry.body,
     }) do %>
  <% if entry.photo.present? %>
- <p class="thumb">
+ <p class="thumbnail">
   <%= link_to(
         lazy_image(entry.photo.url(:thumb), alt: entry.id),
         entry_full_path(entry)) %>
@@ -11,7 +10,7 @@
  <% end %>
  <div class="text">
   <p class="body">
-   <%= entry.body.truncate(20) %>
+   <%= entry.body %>
   </p>
   <%= footer do %>
    <% if entry.root? %>
