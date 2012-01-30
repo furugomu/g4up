@@ -1,6 +1,6 @@
 <%= nav class: 'tag-cloud' do %>
-<% tags.each do |tag| %>
-<%= link_to(tag.name, tag, class: 'tag %s' % Imas.romaji(tag.name)) %>
+<% Idol.idols.each do |idol| %>
+<%= link_to(idol.name, acts_as_taggable_on_tag_path(idol.name), class: 'tag %s' % idol.romaji) %>
 <% end %>
 <%= link_to('あみまみ', '/tags/亜美 真美?any=1', class: 'tag ami mami') %>
 <% end %>

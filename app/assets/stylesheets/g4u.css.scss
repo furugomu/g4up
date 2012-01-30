@@ -113,8 +113,11 @@ address {
 .miki { background-color: $miki-color; }
 .hibiki { background-color: $hibiki-color; }
 .takane { background-color: $takane-color; }
+.ai { background-color: $ai-color; }
+.eri { background-color: $eri-color; }
+.ryo { background-color: $ryo-color; }
 
-.yukiho, .haruka, .yayoi, .iori, .ami, .mami, .miki {
+.yukiho, .haruka, .yayoi, .iori, .ami, .mami, .miki, .ai, .eri, .ryo {
   #color: #333;
   :link, :visited {
     color: #333;
