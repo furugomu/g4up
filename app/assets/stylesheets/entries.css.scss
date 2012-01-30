@@ -13,7 +13,7 @@ $thumb-width: 320px;
     float: left;
     width: 320px;
     height: 180px;
-    overflow: hidden;
+    overflow: visible;
     position: relative;
     margin: $grid-margin/2;
     .thumbnail img {
@@ -23,13 +23,15 @@ $thumb-width: 320px;
     }
     .text {
       position: absolute;
-      left: 0; bottom: 0; width: 100%;
+      left: 0; top: 100%; width: 100%;
       visibility: hidden;
       opacity: 0;
       -moz-transition: opacity 500ms ease;
       -webkit-transition: opacity 500ms ease;
       transition: opacity 500ms ease;
     }
+    z-index: 1;
+    &:hover { z-index: 2; }
     &:hover .text {
       visibility: visible;
       opacity: 1;
