@@ -29,4 +29,9 @@ namespace :deploy do
     #run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
     run "touch #{File.join(current_path,'tmp','restart.txt')}"
   end
+  after "deploy:symlink", "deploy:s3config"
+  namespace :s3config do
+    desc "link s3.yaml from shared"
+    run "ln -s #{shared_path}/config/s3.yaml #{current_path}/config/s3.yaml"
+  end
 end
