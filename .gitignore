@@ -7,3 +7,4 @@ tmp/
 public/system
 public/assets
 public/index.html
+config/s3.yaml

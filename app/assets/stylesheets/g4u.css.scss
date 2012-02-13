@@ -1,7 +1,7 @@
 // -*- css -*-
 
 @import "common";
-
+@import "imas";
 body {
   margin: 0;
   color: $font-color;
@@ -100,21 +100,24 @@ address {
   text-align: right;
 }
 
-.haruka { background-color: #e03032; }
-.chihaya { background-color: #2947ce; }
-.yukiho { background-color: #d6dfeb; }
-.yayoi { background-color: #f39b3b; }
-.ritsuko { background-color: #01aa60; }
-.azusa { background-color: #943abd; }
-.iori { background-color: #fd9be0; }
-.makoto { background-color: #54575a; }
-.ami { background-color: #ffe542; }
-.mami { background-color: #fde240; }
-.miki { background-color: #b4de4a; }
-.hibiki { background-color: #00adb7; }
-.takane { background-color: #a61269; }
+.haruka { background-color: $haruka-color; }
+.chihaya { background-color: $chihaya-color; }
+.yukiho { background-color: $yukiho-color; }
+.yayoi { background-color: $yayoi-color; }
+.ritsuko { background-color: $ritsuko-color; }
+.azusa { background-color: $azusa-color; }
+.iori { background-color: $iori-color; }
+.makoto { background-color: $makoto-color; }
+.ami { background-color: $ami-color; }
+.mami { background-color: $mami-color; }
+.miki { background-color: $miki-color; }
+.hibiki { background-color: $hibiki-color; }
+.takane { background-color: $takane-color; }
+.ai { background-color: $ai-color; }
+.eri { background-color: $eri-color; }
+.ryo { background-color: $ryo-color; }
 
-.yukiho, .haruka, .yayoi, .iori, .ami, .mami, .miki {
+.yukiho, .haruka, .yayoi, .iori, .ami, .mami, .miki, .ai, .eri, .ryo {
   #color: #333;
   :link, :visited {
     color: #333;
