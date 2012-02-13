@@ -30,7 +30,7 @@ namespace :deploy do
     run "touch #{File.join(current_path,'tmp','restart.txt')}"
   end
   after "deploy:symlink", "deploy:s3config"
-  namespace :s3config do
+  task :s3config do
     desc "link s3.yaml from shared"
     run "ln -sf #{shared_path}/config/s3.yaml #{current_path}/config/s3.yaml"
   end
