@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360">
+ <circle cx="180" cy="180" r="150" fill="none" stroke="black" stroke-width="20" />
+ <polyline points="90,190 90,250 270,250 270,190" stroke="black" stroke-width="20" fill="none" />
+ <polyline points="100,180 100,240 260,240 260,180" stroke="none" stroke-width="40" fill="none" />
+ <polygon points="140,80 220,80 220,140 260,140 180,220 100,140 140,140" stroke="none" fill="black" />
+</svg>
