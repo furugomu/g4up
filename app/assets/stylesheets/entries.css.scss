@@ -8,13 +8,14 @@ $thumb-width: 320px;
 .entries {
   margin: $grid-margin/2;
   clear: both;
+  text-align: center;
   @include clearfix;
   article, .article {
-    float: left;
+    display: inline-block;
+    text-align: left;
     width: 320px;
     height: 180px;
     overflow: visible;
-    position: relative;
     margin: $grid-margin/2;
     .thumbnail img {
       width: 320px;
