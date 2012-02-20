@@ -1,15 +1,21 @@
 <%= section class: "products" do %>
- <a href="http://www.amazon.co.jp/dp/B005DVVUW8/precog-22"><img src="http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&amp;Format=_SL160_&amp;ASIN=B005DVVUW8&amp;MarketPlace=JP&amp;ID=AsinImage&amp;WS=1&amp;ServiceVersion=20070822" alt="アイドルマスター2 初回限定生産版 『アニメもゲームもグラビアも! アイマス@スペシャルBOX』" /></a>
 
- <a href="http://www.amazon.co.jp/dp/B005I0MD1Q/precog-22"><img src="http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&amp;Format=_SL160_&amp;ASIN=B005I0MD1Q&amp;MarketPlace=JP&amp;ID=AsinImage&amp;WS=1&amp;ServiceVersion=20070822" alt="アイドルマスター アニメ &amp; G4U! パック VOL.2" /></a>
+<% [
+  ["B005DVVUW8", 'アイドルマスター2 初回限定生産版 『アニメもゲームもグラビアも! アイマス@スペシャルBOX』'],
+  ["B005I0MD1Q", "アイドルマスター アニメ& G4U!パック VOL.2"],
+  ["B005MHQP32", "アイドルマスター アニメ& G4U!パック VOL.3"],
+  ["B005QUVOYA", "アイドルマスター アニメ& G4U!パック VOL.4"],
+  ["B00601M5UG", "アイドルマスター アニメ& G4U!パック VOL.5"],
+  ["B00601M7KE", "アイドルマスター アニメ& G4U!パック VOL.6"],
+  ["B0061ZSTA6", "アイドルマスター アニメ& G4U!パック VOL.7"],
+  ["B0061ZSXQ6", "アイドルマスター アニメ& G4U!パック VOL.8"],
+  ["B0061ZSZ46", "アイドルマスター アニメ& G4U!パック VOL.9"],
+].each do |asin, title| %>
+<%= link_to(
+      image_tag(('http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8' +
+                 '&Format=_SL160_&ASIN=%s&MarketPlace=JP&ID=AsinImage' +
+                 '&WS=1&ServiceVersion=20070822') % asin, alt: title),
+      'http://www.amazon.co.jp/dp/%s/precog-22' % asin) %>
+<% end %>
 
- <a href="http://www.amazon.co.jp/dp/B005MHQP32/precog-22"><img src="http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&amp;Format=_SL160_&amp;ASIN=B005MHQP32&amp;MarketPlace=JP&amp;ID=AsinImage&amp;WS=1&amp;ServiceVersion=20070822" alt="
-アイドルマスター アニメ&amp; G4U!パック VOL.3" /></a>
-
- <a href="http://www.amazon.co.jp/dp/B005QUVOYA/precog-22"><img src="http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&amp;Format=_SL160_&amp;ASIN=B005QUVOYA&amp;MarketPlace=JP&amp;ID=AsinImage&amp;WS=1&amp;ServiceVersion=20070822" alt="
-アイドルマスター アニメ&amp; G4U!パック VOL.4" /></a>
-
- <a href="http://www.amazon.co.jp/dp/B001CKZ6LK/precog-22"><img src="http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&amp;Format=_SL160_&amp;ASIN=B001CKZ6LK&amp;MarketPlace=JP&amp;ID=AsinImage&amp;WS=1&amp;tag=precog-22&amp;ServiceVersion=20070822" title="ごぶごぶちゃん☆第27夜より" alt="[アシックス]SUPERTUGＩ[6700T]" /></a>
-
- <a href="http://www.amazon.co.jp/dp/B001CQRE9Q/precog-22"><img src="http://ws.assoc-amazon.jp/widgets/q?_encoding=UTF8&amp;Format=_SL160_&amp;ASIN=B001CQRE9Q&amp;MarketPlace=JP&amp;ID=AsinImage&amp;WS=1&amp;tag=precog-22&amp;ServiceVersion=20070822" title="ごぶごぶちゃん☆第36夜より" alt="竹井機器工業 T.K.K.5407c バランス-1 閉開眼片足立ち測定器1人用" /></a>
 <% end %>
