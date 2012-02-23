@@ -1,9 +1,7 @@
-<% if ps3? %><p class="pagination"><% end %>
 <%= paginate entries %>
 <%= section class: "entries autopagerize_page_element" do %>
 <% entries.each do |entry| %>
  <%= render entry %>
 <% end %>
 <% end %>
-<% if ps3? %><p class="pagination"><% end %>
 <%= paginate entries %>

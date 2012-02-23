@@ -1,6 +1,6 @@
 <%# -*- encoding: UTF-8 -*-%>
 <% @entry ||= Entry.new %>
-<%= form_for @entry do |f| %>
+<%= form_for @entry, multipart: true do |f| %>
  <%= render 'shared/error_messages', target: @entry %>
  <table>
   <tr>

@@ -10,6 +10,7 @@
 //= require jquery.lazyload2
 //= require ga
 //= require_self
+if (!window.console) console = {log: function(){}};
 jQuery(function($) {
   $(document).lazyload2('.lazyload');
   function autopagerHandler(e) {

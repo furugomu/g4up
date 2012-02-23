@@ -63,7 +63,7 @@ module ApplicationHelper
 
   # html5 を使えない人々
   def legacy?
-    ps3?
+    false
   end
 
   def lazy_image(src, options={})
