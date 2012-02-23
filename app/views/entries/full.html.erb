@@ -2,7 +2,7 @@
  <%= tag(:link, rel: 'canonical', href: polymorphic_url([:full, @entry], filename: nil)) %>
 <% end %>
 <%= article({
-      class: Imas.romaji(@entry.idol_tag),
+      class: @entry.idol.try(:romaji),
       id: "full",
     }) do %>
 <p class="photo">

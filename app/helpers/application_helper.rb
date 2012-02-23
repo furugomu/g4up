@@ -30,7 +30,7 @@ module ApplicationHelper
   end
 
   def idol_names
-    %w(亜美 真美 やよい 伊織 美希 千早 響 春香 雪歩 真 貴音 律子 あずさ)
+    Idol.names
   end
 
   def entry_full_path(entry)

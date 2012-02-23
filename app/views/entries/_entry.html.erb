@@ -1,5 +1,5 @@
 <%= article({
-      class: Imas.romaji(entry.idol_tag),
+      class: entry.idol.try(:romaji),
     }) do %>
  <% if entry.photo.present? %>
  <p class="thumbnail">

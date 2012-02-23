@@ -83,8 +83,8 @@ class Entry < ActiveRecord::Base
     end
   end
 
-  def idol_tag
-    self.tag_list.detect{|x|Imas.idol_names.include?(x)}
+  def idol
+    Idol.all.detect{|x|self.tag_list.include?(x.name)}
   end
 
   class << self
