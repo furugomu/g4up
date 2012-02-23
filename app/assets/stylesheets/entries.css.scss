@@ -39,7 +39,7 @@ $thumb-width: 320px;
     }
   }
   $text-alpha: 0.8;
-  .text { background-color: rgba($haruka-color, $text-alpha); }
+  .text { background-color: rgba(white, $text-alpha); }
   .haruka .text { background-color: rgba($haruka-color, $text-alpha); }
   .chihaya .text { background-color: rgba($chihaya-color, $text-alpha); }
   .yukiho .text { background-color: rgba($yukiho-color, $text-alpha); }
