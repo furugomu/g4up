@@ -102,7 +102,7 @@ class Entry < ActiveRecord::Base
 
   def other_tags
     @other_tags ||
-      tag_list.reject{|x| Imas.idol_names.include?(x)}.join(' ')
+      tag_list.reject{|x| Idol.names.include?(x)}.join(' ')
   end
 
   private
@@ -118,7 +118,8 @@ class Entry < ActiveRecord::Base
   # ファイル名にアイドルの名前が含まれていたらタグに追加
   def add_tag_from_filename
     photo.original_filename.present? or return
-    tag = Imas.idol_names.detect{|n| photo.original_filename.include?(n)}
+    names = Idol.names.sort_by(&:length).reverse
+    tag = names.detect{|n| photo.original_filename.include?(n)}
     self.tag_list << tag if tag
   end
 

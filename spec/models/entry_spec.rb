@@ -26,6 +26,23 @@ describe Entry do
     its(:tag_list) { should be_include('伊織') }
   end
 
+  describe 'with photo(真美.jpg)' do
+    subject {
+      Entry.new(photo: Rails.root.join('spec','files','真美.jpg').open()).tap(&:valid?)
+    }
+    it { should be_valid }
+    its(:tag_list) { should be_include('真美') }
+    its(:tag_list) { should_not be_include('真') }
+  end
+
+  describe 'with photo(真.jpg)' do
+    subject {
+      Entry.new(photo: Rails.root.join('spec','files','真.jpg').open()).tap(&:valid?)
+    }
+    it { should be_valid }
+    its(:tag_list) { should be_include('真') }
+  end
+
   describe 'setting other_tags' do
     before do
       @tags = 'う ど ん'
