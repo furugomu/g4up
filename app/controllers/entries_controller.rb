@@ -26,7 +26,7 @@ class EntriesController < ApplicationController
     if params[:filename].present? && _2ch_viewer?
       redirect_to @entry.photo.url(:original) and return
     end
-    render :layout=>'fullscreen'
+    render layout: 'fullscreen', formats: 'html'
   end
 
   def new
