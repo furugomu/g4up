@@ -38,7 +38,7 @@ class Idol
 
     Idol.new('愛', production: 876, age: 13, romaji: 'ai', kana: 'あい'),
     Idol.new('絵理', production: 876, age: 15, romaji: 'eri', kana: 'えり'),
-    Idol.new('涼', production: 876, age: 15, romaji: 'ryo', kana: 'りょう', g4u: false),
+    Idol.new('涼', production: 876, age: 15, romaji: 'ryo', kana: 'りょう'),
 
     Idol.new('冬馬', production: 961, age: 17, romaji: 'touma', kana: 'とうま', g4u: false),
     Idol.new('翔太', production: 961, age: 14, romaji: 'shota', kana: 'しょうた', g4u: false),
