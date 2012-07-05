@@ -158,10 +158,29 @@ address {
 .products {
 }
 
+#tags h1 {
+  font-size: 110%;
+  cursor: pointer;
+}
+@media screen and (max-width: 320px) {
+  #tags nav { display: none; }
+  #tags h1 {
+    font-size: 100%;
+    &::before { content: "\25b6"; }
+    &.opened::before { content: "\25bc"; }
+  }
+}
+@media screen and (min-width: 321px) {
+  #tags h1 { display: none; }
+}
+
 .tag-cloud {
   text-align: center;
   a {
+    display: inline-block;
     text-decoration: none;
     padding: .5ex 1ex;
+    margin: 2px 0;
+    white-space: nowrap;
   }
 }

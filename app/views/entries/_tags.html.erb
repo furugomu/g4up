@@ -1,3 +1,5 @@
+<section id="tags">
+ <h1><%= t('tags') %></h1>
 <%= nav class: 'tag-cloud' do %>
 <% Idol.all.each do |idol| %>
 <%= link_to(idol.name, 
@@ -8,3 +10,4 @@
             acts_as_taggable_on_tag_path('亜美 真美', any: 1),
             class: 'tag ami mami') %>
 <% end %>
+</section>

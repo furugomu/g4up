@@ -7,6 +7,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require entries
+//= require tags
 //= require jquery.lazyload2
 //= require ga
 //= require_self
