@@ -9,7 +9,7 @@ class Idol
   def initialize(name, hash={})
     @name = name
     @production = hash[:production] || 765
-    @gender = hash[:production] || :female
+    @gender = hash[:gender] || :female
     @romaji = hash[:romaji]
     @age = hash[:age]
     @kana = hash[:kana]
@@ -40,9 +40,12 @@ class Idol
     Idol.new('絵理', production: 876, age: 15, romaji: 'eri', kana: 'えり'),
     Idol.new('涼', production: 876, age: 15, romaji: 'ryo', kana: 'りょう'),
 
-    Idol.new('冬馬', production: 961, age: 17, romaji: 'touma', kana: 'とうま', g4u: false),
-    Idol.new('翔太', production: 961, age: 14, romaji: 'shota', kana: 'しょうた', g4u: false),
-    Idol.new('北斗', production: 961, age: 20, romaji: 'hokuto', kana: 'ほくと', g4u: false),
+    Idol.new('冬馬', production: 961, gender: :male, age: 17,
+             romaji: 'touma', kana: 'とうま', g4u: false),
+    Idol.new('翔太', production: 961, gender: :male, age: 14,
+             romaji: 'shota', kana: 'しょうた', g4u: false),
+    Idol.new('北斗', production: 961, gender: :male, age: 20,
+             romaji: 'hokuto', kana: 'ほくと', g4u: false),
   ]
 
   class << self
