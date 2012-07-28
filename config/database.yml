@@ -13,6 +13,5 @@ production:
   encoding: unicode
   database: g4up
   pool: 5
-  host: localhost
+  socket: /tmp/.s.PGSQL.5432
   username: faerie
-  password: onigiriwa315
