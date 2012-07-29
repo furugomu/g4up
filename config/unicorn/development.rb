@@ -3,7 +3,7 @@
 require 'pathname'
 root = Pathname.new(__FILE__).dirname.join('..', '..').realpath
 
-listen root.join('tmp', 'sockets', 'unicorn.sock').to_s
+listen '/tmp/g4up-unicorn.sock'
 worker_processes 2
 
 working_directory root.to_s
