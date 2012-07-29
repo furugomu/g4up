@@ -5,4 +5,4 @@ module ActsAsTaggableOn
     end
   end
 end
-ActsAsTaggableOn::TagList.delimiter = ' '
+ActsAsTaggableOn::delimiter = ' '
