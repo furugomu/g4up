@@ -20,13 +20,9 @@ class EntriesController < ApplicationController
   end
 
   def full
+    # 画像にリダイレクト
     @entry = Entry.find(params[:id])
-    # 2ch ビューア等のインライン表示のため、
-    # g4uxxx.jpg に直接来たら画像だけ表示。
-    if params[:filename].present? && _2ch_viewer?
-      redirect_to @entry.photo.url(:original) and return
-    end
-    render layout: 'fullscreen', formats: 'html'
+    redirect_to @entry.photo.url(:original)
   end
 
   def new
@@ -38,7 +34,7 @@ class EntriesController < ApplicationController
     unless @entry.save()
       render action: :new and return
     end
-    redirect_to entry_full_url(@entry)
+    redirect_to :root
   end
 
   def edit
@@ -73,6 +69,7 @@ class EntriesController < ApplicationController
       request.referrer.blank?
   end
 
+  # たぶんもういらない
   def redirect_to(url)
     return super unless ps3?
     # PS3 でふつうにリダイレクトすると bad content body と言われる
