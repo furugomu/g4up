@@ -7,20 +7,8 @@ class Entry < ActiveRecord::Base
     styles: {thumb: '320x180'},
     use_timestamp: false,
     url: '/system/:attachment/:id/:style/g4u:id.:extension',
-    storage: lambda {|attachment|
-      default = Rails.env.production? ? :s3 : :filesystem
-      (attachment.instance.storage || default).to_sym
-    },
-    path: lambda {|attachment|
-      if attachment.instance.storage == 's3'
-        '/photo/:id/:style/g4u:id.:extension'
-      else
-        ':rails_root/public:url'
-      end
-    },
-    s3_credentials: Rails.root.join('config', 's3.yaml').to_s,
-    s3_host_name: 's3-ap-northeast-1.amazonaws.com',
-    bucket: 'g4u',
+    storage: :filesystem,
+    path: ':rails_root/public:url',
   })
   acts_as_taggable
   paginates_per 48

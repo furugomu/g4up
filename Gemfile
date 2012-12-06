@@ -4,8 +4,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.2.2'
 gem 'sqlite3', group: [:test, :development]
 gem 'pg', group: :production
-gem 'paperclip', '2.4.5'
-gem 'aws-s3'
+gem 'paperclip'
 gem 'acts-as-taggable-on'
 gem 'kaminari'
 
