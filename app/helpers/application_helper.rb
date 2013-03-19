@@ -67,9 +67,9 @@ module ApplicationHelper
   end
 
   def lazy_image(src, options={})
-    return image_tag(src, options) if ps3?
-    placeholder = content_tag(
-      :span, "", data: options.merge(src: src), 'class'=>'lazyload')
+    placeholder = image_tag('loading-320x180.gif',
+      data: options.merge(src: src),
+      class: 'lazyload')
     noscript = content_tag(:noscript, image_tag(src, options))
     placeholder+noscript
   end

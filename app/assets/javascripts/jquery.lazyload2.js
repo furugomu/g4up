@@ -5,17 +5,18 @@
     if (!selector) selector = 'img';
     var images = this.find(selector).get();
     var margin = 100;
-    $(window).on('scroll', function() {
+    var lazyload = function() {
       var notLoaded = [];
-      $(images).each(function(i) {
-        if (!$(this).data('src')) return;
-        var bottom = $(window).scrollTop() + $(window).height();
-        if ($(this).offset().top < bottom + margin) {
+      var bottom = $(window).scrollTop() + $(window).height();
+      $.each(images, function() {
+        var $this = $(this);
+        if (!$this.data('src')) return;
+        if ($this.offset().top < bottom + margin) {
           if (this.nodeName == 'IMG') {
-            $(this).attr('src', $(this).data('src'));
+            $this.attr('src', $this.data('src'));
           }
           else {
-            $(this).replaceWith($('<img />').attr($(this).data()));
+            $this.replaceWith($('<img />').attr($this.data()));
           }
         }
         else {
@@ -23,8 +24,9 @@
         }
       });
       images = notLoaded;
-    });
-    $(window).trigger('scroll');
+    }
+    setInterval(lazyload, 500);
+    lazyload();
     return this;
   }
 })(jQuery);
